@@ -137,6 +137,12 @@ input:focus{
   margin-bottom: 40px;
 }
 
+.feature-one h2,.feature-two h2,.feature-three h2{
+  margin: 15px;
+}
+
+
+
 
 /* --------------------------App store ------------------------- */
  
@@ -181,6 +187,15 @@ a{
   text-transform: capitalize;
   font-size: 14px;
   color: aliceblue;
+  transition: .2s;
+}
+
+li:hover{
+  transform: scaleX(1.03);
+}
+
+hr{
+  margin: 10px 0;
 }
 
 .divv{

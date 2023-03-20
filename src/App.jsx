@@ -116,6 +116,7 @@ function CityData(){
       <div className="div">
      <div>
      <p><strong>WE DELIVER TO</strong></p>
+     <hr />
      </div>
     <div className="cityData">
       {city.map((ev)=> <CityLinks city={ev}/>)}
