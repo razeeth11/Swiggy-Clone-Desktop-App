@@ -14,6 +14,10 @@ function Login() {
   const [value,setValue] = useState("")
   const [state,setState] = useState(false)
 
+  const style = {
+    fontSize : "14px",
+  }
+
   return (
     <div className="log-in-page">
       <div className="welcome-page">
@@ -39,7 +43,7 @@ function Login() {
              <button onClick={()=> setState(value == "") }>FIND FOOD</button>
              </div>
            </div>
-            {state  ? <Alert severity="error"><strong>Enter your delivery location</strong></Alert> : null}
+            {state  ? <Alert sx={style}  severity="error"><strong>Enter your delivery location</strong></Alert> : null}
 
            <div className="city">
             <p>POPULAR CITIES IN INDIA</p>
@@ -54,6 +58,60 @@ function Login() {
           />
         </div>
       </div>
+      <Feature/>
+      <AppStore/>
     </div>
   );
 }
+
+
+function Feature(){
+  return(
+    <div className="feature">
+      <div className="feature-one">
+        <img src="images\4x_-_No_min_order_x0bxuf.webp" alt="no-min-order.png" width="120px"/>
+        <h2>No Minimum Order</h2>
+        <p>Order in for yourself or for the group, with no restrictions on order value</p>
+      </div>
+      <div className="feature-two">
+        <img src="images\4x_Live_order_zzotwy.webp" alt="live-order.png" width="120px"/>
+        <h2>Live Order Tracking</h2>
+        <p>Know where your order is at all times, from the restaurant to your doorstep</p>
+      </div>
+      <div className="feature-three">
+        <img src="images\4x_-_Super_fast_delivery_awv7sn.webp" alt="super-fast-delivery.png" width="120px"/>
+        <h2>Lightning-Fast Delivery</h2>
+        <p>Experience Swiggy's superfast delivery for food delivered fresh & on time</p>
+      </div>
+    </div>
+  )
+}
+
+
+function AppStore(){
+  return(
+    <div className="AppStore">
+       <div className="AppStore-one">
+        <h1>Restaurants in your pocket</h1>
+        <p>Order from your favorite restaurants & track on the go, with the all-new Swiggy app.</p>
+         <img src="images\play.webp" alt="playstore-link.jpeg"  width="180px" />
+         <img src="images\iOS_ajgrty.webp" alt="Appstore-link.jpeg" width="180px" />
+       </div>
+       <div className="AppStore-two">
+         <img src="images\firxt.jpeg" alt="swiggy-online-app.jpeg" width="300px"/>
+         <img src="images\second.jpeg" alt="swiggy-online-app.jpeg" width="300px"/>
+       </div>
+    </div>
+  )
+}
+
+// function CityLinks(){
+//   return(
+//     <div className="City-links">
+//       <p><strong>WE DELIVER TO</strong></p>
+//       <li></li> 
+//     </div>
+//   )
+// }
+
+

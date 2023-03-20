@@ -3,7 +3,7 @@
 }
 
 body{
-  font-family: roboto;
+  font-family: ProximaNova,arial,Helvetica Neue,sans-serif;
 }
 
 .welcome-page{
@@ -40,6 +40,7 @@ body{
   color: orange;
   border: 1px solid black;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .log-sign{
@@ -54,6 +55,10 @@ body{
 
 .quote h1{
   margin-bottom: 15px;
+}
+
+.quote p{
+  font-size: 22px;
 }
 
 .pincode{
@@ -73,11 +78,12 @@ body{
    background-color: #fc8019;
    color: aliceblue;
    font-weight: 700;
+   padding: 20px 30px;
 }
 
 .two{
   background-color: #fc8019;
-  padding: 15px 30px;
+  cursor: pointer;
 }
 
 .pincode input{
@@ -107,3 +113,68 @@ input:focus{
   width: 600px;
   word-spacing: 10px;
 }
+
+
+
+/* ----------------------------------------feature---------------------------------- */
+
+
+
+.feature{
+  display: flex;
+  justify-content: space-around;
+  align-items:end;
+  text-align: center;
+  background-color: #2b1e16;
+  min-height: 400px;
+  padding: 20px;
+}
+
+.feature-one,.feature-two,.feature-three{
+  width: 250px;
+  min-height: 200px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.feature-one h2,p,.feature-two h2,p,.feature-three h2,p{
+  margin: 15px;
+}
+
+
+
+
+/* --------------------------App store ------------------------- */
+ 
+.AppStore{
+  display: flex;
+  height: 400px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.AppStore-two{
+  display: flex;
+}
+
+.AppStore-one{
+  padding: 50px;
+  width: 50%;
+  text-align: left;
+}
+
+.AppStore-one h1{
+  font-size: 34px;
+}
+
+.AppStore-one p{
+  font-size: 18px;
+  margin-left: 0%;
+}
+
+.AppStore-one img{
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+
