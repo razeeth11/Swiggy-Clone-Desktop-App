@@ -137,12 +137,6 @@ input:focus{
   margin-bottom: 40px;
 }
 
-.feature-one h2,p,.feature-two h2,p,.feature-three h2,p{
-  margin: 15px;
-}
-
-
-
 
 /* --------------------------App store ------------------------- */
  
@@ -178,3 +172,46 @@ input:focus{
 }
 
 
+/* --------------------------city links ------------------------------------- */
+
+
+a{
+  text-decoration: none;
+  list-style-type: none;
+  text-transform: capitalize;
+  font-size: 14px;
+  color: aliceblue;
+}
+
+.divv{
+  text-align: left;
+  font-size: 16px;
+  text-align: left;
+  padding: 30px;
+  background-color: #000000;
+  color: rgb(169, 169, 169);
+}
+
+.div p{
+  margin-left: 0%;
+}
+
+.cityData{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.final{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 70px;
+  padding-top: 30px;
+  border-top: 1px solid white;
+}
+
+.final-contact img{
+  margin: 10px;
+}
