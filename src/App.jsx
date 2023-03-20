@@ -1,5 +1,7 @@
 import "./App.css";
 import "./login.css";
+import { useState } from "react";
+import Alert from '@mui/material/Alert';
 
 export function App() {
   return <div className="App">
@@ -8,6 +10,10 @@ export function App() {
 }
 
 function Login() {
+
+  const [value,setValue] = useState("")
+  const [state,setState] = useState(false)
+
   return (
     <div className="log-in-page">
       <div className="welcome-page">
@@ -27,12 +33,13 @@ function Login() {
 
            <div className="pincode">
              <div className="one">
-             <input type="text" placeholder="Enter your delivery location"/>
+             <input onChange={(ev)=> setValue(ev.target.value) } type="text" placeholder="Enter your delivery location"/>
              </div>
              <div className="two">
-             <button>FIND FOOD</button>
+             <button onClick={()=> setState(value == "") }>FIND FOOD</button>
              </div>
            </div>
+            {state  ? <Alert severity="error"><strong>Enter your delivery location</strong></Alert> : null}
 
            <div className="city">
             <p>POPULAR CITIES IN INDIA</p>
