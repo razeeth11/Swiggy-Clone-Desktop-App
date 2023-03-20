@@ -1,0 +1,105 @@
+*{
+  margin: 0%;
+}
+
+body{
+  font-family: roboto;
+}
+
+.welcome-page{
+  display: flex;
+  justify-content: space-between;
+}
+
+.content{
+  padding: 40px;
+  width: 700px;
+}
+
+.logo{
+  display: flex;
+  justify-content: space-between;
+  gap: 200px;
+  margin-top: 40px;
+}
+
+.pincode{
+  display: flex;
+  padding: 5px;
+}
+
+.log-sign h3{
+   border: 1px solid grey;
+   padding: 10px 20px;
+   max-height: 20px;
+   font-weight: 800;
+}
+
+.log-sign h3:hover{
+  background-color: rgb(0, 0, 0);
+  color: orange;
+  border: 1px solid black;
+  font-weight: 800;
+}
+
+.log-sign{
+  display: flex;
+  align-items: center;
+}
+
+.quote{
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+.quote h1{
+  margin-bottom: 15px;
+}
+
+.pincode{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 20px;
+  border: 1px solid grey;
+  padding: 0%;
+}
+
+.pincode button{
+   cursor: pointer;
+   font-size: 16px;
+   border: none;
+   background-color: #fc8019;
+   color: aliceblue;
+   font-weight: 700;
+}
+
+.two{
+  background-color: #fc8019;
+  padding: 15px 30px;
+}
+
+.pincode input{
+  width: 400px;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.city{
+  color: grey;
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+.city p{
+  margin-top: 10px;
+}
+
+.city p:nth-child(2){
+  margin-top: 15px;
+  width: 600px;
+  word-spacing: 10px;
+}
