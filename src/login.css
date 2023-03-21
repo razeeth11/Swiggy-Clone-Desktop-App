@@ -28,19 +28,20 @@ body{
   padding: 5px;
 }
 
-.log-sign h3{
+.log-sign button{
    border: 1px solid rgba(128, 128, 128, 0.208);
    padding: 10px 20px;
-   max-height: 20px;
-   font-weight: 800;
+   font-weight: 700;
+   font-size: 12px;
 }
 
-.log-sign h3:hover{
+.log-sign button:hover{
   background-color: rgb(39, 39, 39);
   color: orange;
   border: 1px solid black;
-  font-weight: 800;
+  font-weight: 00;
   cursor: pointer;
+  font-size: 12px;
 }
 
 .log-sign{
@@ -185,13 +186,13 @@ a{
   text-decoration: none;
   list-style-type: none;
   text-transform: capitalize;
-  font-size: 14px;
+  font-size: 16px;
   color: aliceblue;
   transition: .2s;
 }
 
 li:hover{
-  transform: scaleX(1.03);
+  transform: scale(1.03);
 }
 
 hr{
@@ -229,4 +230,109 @@ hr{
 
 .final-contact img{
   margin: 10px;
+}
+
+
+/* -----------------------------------login card--------------------------------------- */
+
+
+.login-card{
+  position: absolute;
+  right: 0px;
+  padding: 50px;
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+  min-height: 100vh;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.login-card-one h1{
+   font-size: 32px;
+   padding: 5px 0;  
+}
+
+.login-card-one p{
+   font-size: 14px;
+   padding: 10px 0;  
+}
+
+.login-card-two{
+  padding: 15px 0;
+}
+
+.but{
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #fc8019;
+  color: azure;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 0;
+}
+
+.input{
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+}
+
+
+.sign-card{
+  position: absolute;
+  right: 0px;
+  padding: 50px;
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+  min-height: 100vh;
+}
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sign-card-one h1{
+   font-size: 32px;
+   padding: 5px 0;  
+}
+
+.sign-card-one p{
+   font-size: 14px;
+   padding: 10px 0;  
+}
+
+.sign-card-two{
+  padding: 15px 0;
+}
+
+.but{
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #fc8019;
+  color: azure;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 0;
+}
+
+.input{
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
 }

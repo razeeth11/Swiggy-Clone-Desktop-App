@@ -2,6 +2,8 @@ import "./App.css";
 import "./login.css";
 import { useState } from "react";
 import Alert from '@mui/material/Alert';
+import CloseIcon from '@mui/icons-material/Close';
+import { IconButton } from "@mui/material";
 
 export function App() {
   return <div className="App">
@@ -13,20 +15,34 @@ function Login() {
 
   const [value,setValue] = useState("")
   const [state,setState] = useState(false)
+  const [logValue,setLogValue] = useState(false)
+  const [signValue,setSignValue] = useState(false)
 
   const style = {
     fontSize : "14px",
   }
 
+  const setLog = ()=> {
+    setLogValue(true)
+    setSignValue(false)
+  }
+  
+  const setSign = ()=> {
+    setSignValue(true)
+    setLogValue(false)
+  }
+
   return (
     <div className="log-in-page">
+      <LogInCard logValue={logValue} setLogValue={setLogValue}/>
+      <SignUpCard signValue={signValue} setSignValue={setSignValue}/>
       <div className="welcome-page">
         <div className="content">
           <div className="logo">
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/2560px-Swiggy_logo.svg.png" alt="Swiggy-logo.png" width="200px"/>
             <div className="log-sign">
-              <h3 className="log" >Login</h3>
-              <h3>Sign up</h3>
+              <button onClick={()=> setLog() } className="log" >Login</button>
+              <button onClick={()=> setSign() }>Sign up</button>
             </div>
           </div>
            
@@ -41,7 +57,7 @@ function Login() {
              </div>
              <div className="two">
              <button onClick={()=> setState(value == "") }>FIND FOOD</button>
-             </div>
+             </div> 
            </div>
             {state  ? <Alert sx={style}  severity="error"><strong>Enter your delivery location</strong></Alert> : null}
 
@@ -63,6 +79,57 @@ function Login() {
       <CityData/>
     </div>
   );
+}
+
+function LogInCard({logValue,setLogValue}){
+
+  const style = {
+    display: logValue ? 'block' : 'none'
+  }
+
+  return(
+    <div style={style} className="login-card">
+       <IconButton onClick={()=> setLogValue(false)}>< CloseIcon/></IconButton>
+       <div className="login-card-one">
+         <h1>Login</h1>
+         <p>or create an account </p>
+       </div>
+       <div className="login-card-two">
+        <input className="input" type="number" placeholder="Phone number" />       
+       </div>
+       <button className="but" type="submit">LOGIN</button>
+       <div className="login-card-three">
+       <p>By clicking on Login, I accept the Terms & Conditions & Privacy Policy</p>
+       </div>
+    </div>
+  )
+}
+
+function SignUpCard({signValue,setSignValue}){
+
+  const style = {
+    display: signValue ? 'block' : 'none'
+  }
+
+  return(
+    <div style={style} className="sign-card">
+       <IconButton onClick={()=> setSignValue(false)}>< CloseIcon/></IconButton>
+       <div className="sign-card-one">
+         <h1>Sign Up</h1>
+         <p>or log into your account </p>
+       </div>
+       <div className="sign-card-two">
+        <input className="input" type="number" placeholder="Phone number" />       
+        <input className="input" type="text" placeholder="Name" />       
+        <input className="input" type="email" placeholder="Email" />       
+       </div>
+       <h3>Have a referral code?</h3>
+       <button className="but" type="submit">CONTINUE</button>
+       <div className="sign-card-three">
+       <p>By creating on account, I accept the Terms & Conditions & Privacy Policy</p>
+       </div>
+    </div>
+  )
 }
 
 
@@ -152,6 +219,7 @@ function CityLinks({city}){
       </div>
   )
 }
+
 
 
 
