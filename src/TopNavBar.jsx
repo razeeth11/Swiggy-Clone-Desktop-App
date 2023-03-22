@@ -4,20 +4,30 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import HelpIcon from "@mui/icons-material/Help";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import Badge from '@mui/material/Badge';
-import "./styles/topNavBar.css"
+import Badge from "@mui/material/Badge";
+import AppBar from '@mui/material/AppBar';
+import "./styles/topNavBar.css";
+import { useNavigate } from "react-router-dom";
+import Toolbar from '@mui/material/Toolbar';
 
 export function TopNavBar() {
+
+  const style = {
+    padding : 0
+  }
+
+  const navigate = useNavigate();
   return (
-    <div className="top-nav-bar">
+    <AppBar position="static">
+      <Toolbar className="toolbar" sx={style}>
+    <div className="top-nav-bar"> 
       <div className="top-one">
-        <img
+        <img onClick={()=> navigate("/")}
           src="https://i.pinimg.com/originals/b3/8a/a1/b38aa1b21050b0e769a97eb751d12829.png"
           alt="swiggy-logo.png"
           width="80px"
         />
         <p>
-          {" "}
           <span className="other">Other</span> Tamil Nadu 627005, India
         </p>
       </div>
@@ -30,7 +40,7 @@ export function TopNavBar() {
         </div>
         <div className="offers">
           <Badge badgeContent="NEW" color="primary">
-            <Button>
+            <Button onClick={()=> navigate("/offerPage")}>
               <LocalOfferIcon />
               Offers
             </Button>
@@ -56,5 +66,7 @@ export function TopNavBar() {
         </div>
       </div>
     </div>
+    </Toolbar>
+    </AppBar>
   );
 }

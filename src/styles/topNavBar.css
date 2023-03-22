@@ -12,6 +12,8 @@
   display: flex;
   align-items: center;
   font-size: 14px;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
 }
 
 .top-one img:hover{
@@ -50,7 +52,7 @@
   gap: 10px;
   font-size: 13px;
   padding: 10px 5px;
-  margin: 0 0 0 25px;
+  margin: 0 0 0 40px;
   color: rgb(79, 79, 79);
 }
 
@@ -58,5 +60,6 @@
   color: orange;
 }
 
-
-
+.toolbar{
+  padding: 0% !important;
+}

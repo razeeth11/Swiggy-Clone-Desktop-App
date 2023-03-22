@@ -3,14 +3,15 @@ import "./styles/topNavBar.css";
 import "./styles/carousal.css";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
+import {Carousal} from "./Carousal"
 import { TopNavBar } from "./TopNavBar";
-import { Carousal } from "./Carousal";
+import { OfferPage } from "./OfferPage"
 
 export function ProductsPage() {
   return (
     <div className="products-page">
-      <TopNavBar />
       <Carousal />
+      {/* <OfferPage/> */}
       <ProductCard />
     </div>
   );

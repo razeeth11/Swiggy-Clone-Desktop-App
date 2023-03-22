@@ -6,13 +6,17 @@ import CloseIcon from "@mui/icons-material/Close";
 import { IconButton } from "@mui/material";
 import { Routes, Route, Link } from "react-router-dom";
 import { ProductCard,ProductsPage } from "./ProductsPage"
+import { OfferPage } from "./OfferPage";
+import { TopNavBar } from "./TopNavBar";
  
 export function App() {
   return (
     <div className="App">
+      <TopNavBar />
       <Routes>
         <Route path="/" element={<ProductsPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/offerPage" element={<OfferPage />} />
       </Routes>
     </div>
   );

@@ -1,0 +1,17 @@
+.offer-page{
+   background-color: #005062;
+   height: 240px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   color: white;
+   padding: 30px;
+}
+
+.offer-page h1{
+  font-size: 48px;
+}
+
+.offer-page p{
+  font-size: 20px;
+}
