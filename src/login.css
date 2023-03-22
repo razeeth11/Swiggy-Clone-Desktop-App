@@ -4,6 +4,7 @@
 
 body{
   font-family: ProximaNova,arial,Helvetica Neue,sans-serif;
+  overflow-x: hidden;
 }
 
 .welcome-page{
@@ -47,6 +48,10 @@ body{
 .log-sign{
   display: flex;
   align-items: center;
+}
+
+.log-sign button{
+  background-color: white;
 }
 
 .quote{
@@ -236,13 +241,24 @@ hr{
 /* -----------------------------------login card--------------------------------------- */
 
 
+
 .login-card{
+  animation: slide-in 0.3s forwards;
   position: absolute;
   right: 0px;
   padding: 50px;
   background-color: rgb(255, 255, 255);
   width: 30%;
   min-height: 100vh;
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 input::-webkit-inner-spin-button {
@@ -287,8 +303,12 @@ input::-webkit-inner-spin-button {
 }
 
 
+/* -----------------------------------sign up card--------------------------------------- */
+
+
 .sign-card{
   position: absolute;
+  animation: slide-in 0.3s forwards;
   right: 0px;
   padding: 50px;
   background-color: rgb(255, 255, 255);
