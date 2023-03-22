@@ -1,57 +1,38 @@
-.top-nav-bar{
-    background: #ffffff;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.347);
-    width: 100%;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.top-one{
+.carousal{
   display: flex;
   align-items: center;
-  font-size: 14px;
+  justify-content:flex-start;
+  gap: 20px;
+  padding: 20px;
+  min-height: 280px;
+  width: 100%;
+  background-color: antiquewhite;
 }
 
-.top-one img:hover{
-  cursor: pointer;
+.carousal img{
+  transition: 0.3s;
+}
+
+.carousal img:hover{
   transform: scale(1.03);
 }
 
-.other{
-  color: rgb(230, 149, 0);
-  font-weight: 600;
-  border-bottom: 1.5px solid rgb(230, 149, 0);
-  cursor: pointer;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.top-two{
+.wrapper{
+  width: 62%;
   display: flex;
-  align-items: center;
-  font-size: 16px;
-  margin-right: 20px;
+  gap: 40px;
+  animation: slide 30s infinite;
 }
 
-.search,.offers,.help,.person,.cart{
-  display: flex;
-  align-items: center;
+@keyframes slide{
+  0%{
+      transform: translateX(100);
+  }
+  25%{
+      transform: translateX(100);
+  }
+  30%{
+      transform: translateX(-100%);
+  }
 }
-
-.top-two Button {
-  display: flex;
-  gap: 10px;
-  font-size: 13px;
-  padding: 10px 5px;
-  margin: 0 0 0 25px;
-  color: rgb(49, 49, 49);
-}
-
-.top-two Button:hover {
-  color: orange;
-}
-
-
 

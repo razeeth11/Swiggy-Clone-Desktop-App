@@ -1,0 +1,62 @@
+.top-nav-bar{
+    background: #ffffff;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.347);
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-one{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.top-one img:hover{
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.other{
+  color: rgb(55, 55, 55);
+  font-weight: 600;
+  border-bottom: 1.5px solid rgb(55, 55,55);
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.other:hover{
+  color: orange;
+  border-bottom: 1.5px solid orange;
+}
+
+.top-two{
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.search,.offers,.help,.person,.cart{
+  display: flex;
+  align-items: center;
+}
+
+.top-two Button {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  padding: 10px 5px;
+  margin: 0 0 0 25px;
+  color: rgb(79, 79, 79);
+}
+
+.top-two Button:hover {
+  color: orange;
+}
+
+
+
