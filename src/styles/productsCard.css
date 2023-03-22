@@ -5,7 +5,7 @@
 }
 
 p {
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 hr{
@@ -17,19 +17,19 @@ hr{
   color: #8a584b ;
   font-weight: 600;
   font-size: 13px;
+  margin: 5px 0;
 }
 
 .product-view{
   text-align: center;
   font-weight: 300;
   display: none;
-  padding: 5px 0 0 0 ;
   color: rgb(0, 112, 150);
+  margin-top: 10px;
 }
 
 .product-details h2{
    margin: 5px 0 0 0;
-   font-weight: 600;
    font-size: 16px;
 }
 
@@ -52,6 +52,6 @@ hr{
 }
 
 .view-button:hover{
-  color: rgba(0, 191, 255, 0.564);
+  color: rgba(86, 86, 86, 0.564);
 } 
 

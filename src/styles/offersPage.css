@@ -15,3 +15,43 @@
 .offer-page p{
   font-size: 20px;
 }
+
+.payment-offers{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.366);
+  width: 350px;
+}
+
+.payment-offers:hover{
+   box-shadow: 2px 0px 10px rgba(128, 128, 128, 0.46);
+}
+
+.paym{
+  display: grid;
+  grid-template-columns: repeat(3 , auto);
+  gap: 20px;
+}
+
+.payment-one{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  width: 120px;
+  border: 1px solid rgba(128, 128, 128, 0.189);
+  background-color: rgba(255, 255, 0, 0.171);
+}
+
+.payment-four Button{
+  color: orange;
+  border: 1px solid orange;
+  font-size: 12px;
+}
+
+.payment-four Button:hover{
+  border: 1.5px solid rgba(255, 166, 0, 0.288);
+}

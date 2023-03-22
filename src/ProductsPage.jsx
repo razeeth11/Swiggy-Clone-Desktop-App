@@ -34,7 +34,7 @@ export function ProductCard() {
           />
         </div>
         <div className="product-details">
-          <h2>Oven Story Pizza</h2>
+          <h2><strong>Oven Story Pizza</strong></h2>
           <p>Pizzas,italian</p>
         </div>
         <div className="product-rating">
@@ -45,7 +45,6 @@ export function ProductCard() {
           <p>60% off | Use TRYNEW</p>
         </div>
         <div className="product-view">
-          <hr />
           <Button className="view-button" sx={style}>
             QUICKVIEW
           </Button>
