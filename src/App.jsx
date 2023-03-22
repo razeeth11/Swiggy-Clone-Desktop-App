@@ -1,5 +1,5 @@
 import "./App.css";
-import "./login.css";
+import "./styles/login.css";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import CloseIcon from "@mui/icons-material/Close";
@@ -111,6 +111,14 @@ function LogInCard({ logValue, setLogValue }) {
   const style = {
     display: logValue ? "block" : "none",
   };
+  const alert = {
+    width : "100%",
+    boxSizing : "border-box",
+    fontSize: "13px",
+  }
+
+  const [login, setLogin] = useState("");
+  const [state, setState] = useState(false);
 
   return (
     <div style={style} className="login-card">
@@ -122,9 +130,14 @@ function LogInCard({ logValue, setLogValue }) {
         <p>or create an account </p>
       </div>
       <div className="login-card-two">
-        <input className="input" type="number" placeholder="Phone number" />
+        <input onChange={(ev)=> setLogin(ev.target.value) } className="input" type="number" placeholder="Phone number" />
+      {state ? (
+            <Alert sx={alert} severity="error">
+              <strong>Enter your Phone number</strong>
+            </Alert>
+          ) : null}
       </div>
-      <button className="but" type="submit">
+      <button onClick={()=> setState(login == "")} className="but" type="submit">
         LOGIN
       </button>
       <div className="login-card-three">

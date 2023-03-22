@@ -249,7 +249,7 @@ hr{
   padding: 50px;
   background-color: rgb(255, 255, 255);
   width: 30%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 @-webkit-keyframes slide-in {
@@ -313,7 +313,7 @@ input::-webkit-inner-spin-button {
   padding: 50px;
   background-color: rgb(255, 255, 255);
   width: 30%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 input::-webkit-inner-spin-button {

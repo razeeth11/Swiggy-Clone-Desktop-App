@@ -1,7 +1,8 @@
 
 .product-card{
   padding: 10px;
-  width: 260px;
+  width: 265px;
+  cursor: pointer;
 }
 
 p {
@@ -15,16 +16,22 @@ hr{
 
 .product-offer{
   color: #8a584b ;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .product-view{
   text-align: center;
-  margin: 15px 0 0 0;
   font-weight: 300;
   display: none;
-  padding: 0px ;
+  padding: 5px 0 0 0 ;
   color: rgb(0, 112, 150);
+}
+
+.product-details h2{
+   margin: 5px 0 0 0;
+   font-weight: 600;
+   font-size: 16px;
 }
 
 .product-rating{
@@ -48,3 +55,4 @@ hr{
 .view-button:hover{
   color: rgba(0, 191, 255, 0.564);
 } 
+
