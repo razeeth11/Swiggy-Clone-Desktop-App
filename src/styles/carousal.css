@@ -21,7 +21,7 @@
   width: 62%;
   display: flex;
   gap: 40px;
-  animation: slide 30s infinite;
+  animation: slide 45s infinite;
 }
 
 @keyframes slide{
