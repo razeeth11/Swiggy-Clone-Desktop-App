@@ -470,7 +470,7 @@ export function VerticalTabs1() {
           flexGrow: 1,
           bgcolor: "background.paper",
           display: "flex",
-          height: "auto",
+          minHeight: "510px",
         }}
       >
         <Tabs

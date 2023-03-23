@@ -12,8 +12,13 @@
   font-size: 12px;
 }
 
-.help-page-box Button{
+.help-page Button{
     margin: 20px 0;
+}
+
+.tabs Button:focus{
+  color: rgba(0, 0, 0, 0.621);
+  background-color: rgb(208, 233, 255);
 }
 
 .div1{

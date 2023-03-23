@@ -5,17 +5,15 @@ import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import { Carousal } from "./Carousal";
 import { FilterBar } from "./FilterBar";
-import { TopNavBar } from "./TopNavBar";
 import { useState } from "react";
 
 export function ProductsPage() {
 
-  const [state,setState] = useState(false)
  
   return (
     <div className="products-page">
-      {state ? null : <Carousal />}
-      <FilterBar state={state} setState={setState} />
+      <Carousal />
+      <FilterBar  />
     </div>
   );
 }
@@ -28,12 +26,12 @@ export function ProductCard() {
 
   return (
     <div className="product-card">
-      <Card sx={{ minWidth: 235, padding: "15px", borderRadius: 0 }}>
+      <Card sx={{ minWidth: 260, padding: "15px", borderRadius: 0 }}>
         <div className="product-img">
           <img
             src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ab979bffbd658e74de650a15ca0092a3"
             alt="pizza-image"
-            width="235px"
+            width="260px"
           />
         </div>
         <div className="product-details">

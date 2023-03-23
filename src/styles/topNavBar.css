@@ -63,3 +63,28 @@
 .toolbar{
   padding: 0% !important;
 }
+
+.Cart{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 20px;
+   width: 400px;
+   text-align: center;
+   margin: auto;
+   padding: 80px 0;
+}
+
+.Cart Button{
+   width: 50%;
+   margin: auto;
+   font-size: 11px;
+}
+
+.Cart Button:hover{
+   background-color: rgb(228, 149, 0);
+}
+
+.Cart img{
+  margin: auto;
+}

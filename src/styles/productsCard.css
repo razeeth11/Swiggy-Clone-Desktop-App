@@ -1,6 +1,6 @@
 .product-card{
   padding: 10px;
-  width: 265px;
+  width: 290px;
   cursor: pointer;
 }
 
@@ -23,7 +23,7 @@ hr{
 .product-view{
   text-align: center;
   font-weight: 300;
-  display: none;
+  visibility:hidden;
   color: rgb(0, 112, 150);
   margin-top: 10px;
 }
@@ -38,7 +38,7 @@ hr{
   justify-content: space-between;
   align-items: center;
   margin: 10px 0;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .product-rating p:nth-child(1){
@@ -48,7 +48,7 @@ hr{
 }
 
 .product-card:hover .product-view{
-  display: block;
+  visibility: visible;
 }
 
 .view-button:hover{
