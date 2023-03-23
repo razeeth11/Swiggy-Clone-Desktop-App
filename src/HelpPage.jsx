@@ -416,6 +416,8 @@ export function HelpPage3() {
   );
 }
 
+
+
 export function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -457,13 +459,16 @@ export function VerticalTabs1() {
   };
 
   return (
+    <div className="help-page-box">
+      <h1 className="h1">Help & Support</h1>
+      <p className="p">Let's take a step ahead and help you better.</p>
     <div className="help-box">
       <Box
         sx={{
           flexGrow: 1,
           bgcolor: "background.paper",
           display: "flex",
-          height: "100vh",
+          height: "auto",
         }}
       >
         <Tabs
@@ -490,6 +495,7 @@ export function VerticalTabs1() {
           <HelpPage3 />
         </TabPanel>
       </Box>
+    </div>
     </div>
   );
 }

@@ -3,16 +3,19 @@ import "./styles/topNavBar.css";
 import "./styles/carousal.css";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
-import {Carousal} from "./Carousal"
+import { Carousal } from "./Carousal";
+import { FilterBar } from "./FilterBar";
 import { TopNavBar } from "./TopNavBar";
-import { OfferPage } from "./OfferPage"
+import { useState } from "react";
 
 export function ProductsPage() {
+
+  const [state,setState] = useState(false)
+ 
   return (
     <div className="products-page">
-      <Carousal />
-      {/* <OfferPage/> */}
-      <ProductCard />
+      {state ? null : <Carousal />}
+      <FilterBar state={state} setState={setState} />
     </div>
   );
 }
@@ -34,7 +37,9 @@ export function ProductCard() {
           />
         </div>
         <div className="product-details">
-          <h2><strong>Oven Story Pizza</strong></h2>
+          <h2>
+            <strong>Oven Story Pizza</strong>
+          </h2>
           <p>Pizzas,italian</p>
         </div>
         <div className="product-rating">
