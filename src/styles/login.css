@@ -187,7 +187,7 @@ input:focus{
 /* --------------------------city links ------------------------------------- */
 
 
-a{
+.divv a{
   text-decoration: none;
   list-style-type: none;
   text-transform: capitalize;
@@ -355,4 +355,46 @@ input::-webkit-inner-spin-button {
   width: 100%;
   font-size: 16px;
   outline: none;
+}
+
+
+/* ----------------- About ------------------------- */
+
+
+.about{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  text-align: left;
+  padding: 40px;
+  background-color: #000000;
+  color: white;
+}
+
+.about ul{
+  padding: 0%;
+  margin-top: 20px;
+}
+
+.about h2{
+  color: rgba(255, 255, 255, 0.538);
+}
+
+.about a{
+  text-decoration: none;
+  list-style-type: none;
+  text-transform: capitalize;
+  font-size: 16px;
+  transition: .2s;
+  color: white ;
+}
+
+.about li{
+  list-style-type: none;
+  margin-top: 18px;
+}
+
+.about-four{
+  display: flex;
+  flex-direction: column;
 }

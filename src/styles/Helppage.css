@@ -6,10 +6,24 @@
   background-color: #005062;
 }
 
+.help-page-box Button, .help-page-box a{
+  border-radius: 0%;
+  color: orange;
+  font-size: 12px;
+}
+
+.help-page-box Button{
+    margin: 20px 0;
+}
+
+.div1{
+  padding: 40px 0 ;
+}
+
 .help-page-box .h1{
   padding: 50px 0 0 0;
   margin-left: 20px;
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 600;
   color: white;
 }
@@ -17,7 +31,7 @@
 .help-page-box .p{
   padding: 0px 0 50px 0;
   margin-left: 20px;
-  font-size: 16px;
+  font-size: 22px;
   color: white;
 }
 

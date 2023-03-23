@@ -460,8 +460,10 @@ export function VerticalTabs1() {
 
   return (
     <div className="help-page-box">
+      <div className="div1">
       <h1 className="h1">Help & Support</h1>
       <p className="p">Let's take a step ahead and help you better.</p>
+      </div>
     <div className="help-box">
       <Box
         sx={{
@@ -496,6 +498,6 @@ export function VerticalTabs1() {
         </TabPanel>
       </Box>
     </div>
-    </div>
+    </div>  
   );
 }
