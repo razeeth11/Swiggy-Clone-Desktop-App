@@ -5,10 +5,11 @@ import Alert from "@mui/material/Alert";
 import CloseIcon from "@mui/icons-material/Close";
 import { IconButton } from "@mui/material";
 import { Routes, Route, Link } from "react-router-dom";
-import { ProductCard,ProductsPage } from "./ProductsPage"
+import { ProductCard, ProductsPage } from "./ProductsPage";
 import { OfferPage } from "./OfferPage";
 import { TopNavBar } from "./TopNavBar";
- 
+import { VerticalTabs1 } from "./HelpPage"
+
 export function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ export function App() {
         <Route path="/" element={<ProductsPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/offerPage" element={<OfferPage />} />
+        <Route path="/helpPage" element={<VerticalTabs1 />} />
       </Routes>
     </div>
   );
@@ -71,7 +73,7 @@ function Login() {
             <div className="one">
               <input
                 onChange={(ev) => setValue(ev.target.value)}
-                type="number" 
+                type="number"
                 placeholder="Enter your delivery location"
               />
             </div>
@@ -116,10 +118,10 @@ function LogInCard({ logValue, setLogValue }) {
     display: logValue ? "block" : "none",
   };
   const alert = {
-    width : "100%",
-    boxSizing : "border-box",
+    width: "100%",
+    boxSizing: "border-box",
     fontSize: "13px",
-  }
+  };
 
   const [login, setLogin] = useState("");
   const [state, setState] = useState(false);
@@ -134,14 +136,23 @@ function LogInCard({ logValue, setLogValue }) {
         <p>or create an account </p>
       </div>
       <div className="login-card-two">
-        <input onChange={(ev)=> setLogin(ev.target.value) } className="input" type="number" placeholder="Phone number" />
-      {state ? (
-            <Alert sx={alert} severity="error">
-              <strong>Enter your Phone number</strong>
-            </Alert>
-          ) : null}
+        <input
+          onChange={(ev) => setLogin(ev.target.value)}
+          className="input"
+          type="number"
+          placeholder="Phone number"
+        />
+        {state ? (
+          <Alert sx={alert} severity="error">
+            <strong>Enter your Phone number</strong>
+          </Alert>
+        ) : null}
       </div>
-      <button onClick={()=> setState(login == "")} className="but" type="submit">
+      <button
+        onClick={() => setState(login == "")}
+        className="but"
+        type="submit"
+      >
         LOGIN
       </button>
       <div className="login-card-three">
@@ -877,7 +888,7 @@ function CityData() {
           <hr />
         </div>
         <div className="cityData">
-          {city.map((ev,index) => (
+          {city.map((ev, index) => (
             <CityLinks city={ev} key={index} />
           ))}
         </div>
@@ -928,8 +939,7 @@ function CityLinks({ city }) {
   return (
     <div className="City-links">
       <a href={dt}>
-        {" "}
-        <li>{city}</li>{" "}
+        <li>{city}</li>
       </a>
     </div>
   );

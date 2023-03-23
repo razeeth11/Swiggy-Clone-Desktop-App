@@ -160,8 +160,8 @@ function PaymentOffers({ bank }) {
   const [state, setState] = useState(false);
 
   const style = {
-    variant : state ? "disabled" : "outlined"
-  } 
+    variant: state ? "disabled" : "outlined",
+  };
 
   return (
     <div className="payment-offers">

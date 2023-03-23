@@ -47,7 +47,7 @@ export function TopNavBar() {
           </Badge>
         </div>
         <div className="help">
-          <Button>
+          <Button onClick={()=> navigate("/helpPage")}>
             <HelpIcon />
             Help
           </Button>
