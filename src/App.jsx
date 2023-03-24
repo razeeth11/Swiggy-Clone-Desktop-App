@@ -7,13 +7,13 @@ import { IconButton } from "@mui/material";
 import { Routes, Route, Link } from "react-router-dom";
 import { ProductsPage } from "./ProductsPage";
 import { OfferPage } from "./OfferPage";
-import { TopNavBar,Search } from "./TopNavBar";
+import { TopNavBar } from "./TopNavBar";
+import { Search } from "./Search";
 import { Cart } from "./Cart";
 import { VerticalTabs1 } from "./HelpPage";
 import { About } from "./About";
 import { CityData } from "./CityData";
 import { AppStore } from "./AppStore";
-
 
 export function App() {
   return (
