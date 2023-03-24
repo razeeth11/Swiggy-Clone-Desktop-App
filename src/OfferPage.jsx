@@ -134,12 +134,12 @@ export default function LabTabs() {
             <Tab
               label="Restaurant offers"
               value="1"
-              sx={{ fontSize: "13px", margin: "10px" }}
+              sx={{ fontSize: "13px", margin: "5px" }}
             />
             <Tab
               label="Payment offers/Coupons"
               value="2"
-              sx={{ fontSize: "13px", margin: "10px" }}
+              sx={{ fontSize: "13px", margin: "5px" }}
             />
           </TabList>
         </Box>
