@@ -118,7 +118,7 @@ export function Search() {
           options={top100Films}
           sx={{ width: "100%" }}
           renderInput={(params) => (
-            <TextField
+            <TextField 
               autoFocus={true}
               {...params}
               label="Search for restaurants and food"

@@ -13,11 +13,19 @@ hr{
   opacity: 0.5;
 }
 
+.MuiPaper-rounded:hover {
+    border: 1px solid rgba(128, 128, 128, 0.307);
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+}
+
 .product-offer{
   color: #8a584b ;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 13px;
   margin: 5px 0;
+  padding: 5px 0 5px 5px;
+  border-top: 0.5px solid rgba(128, 128, 128, 0.3);
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.3);
 }
 
 .product-view{

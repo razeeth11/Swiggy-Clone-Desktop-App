@@ -26,7 +26,7 @@ export function ProductCard() {
 
   return (
     <div className="product-card">
-      <Card sx={{ minWidth: 260, padding: "15px", borderRadius: 0 }}>
+      <Card sx={{ minWidth: 260, padding: "15px", borderRadius: 0 , boxShadow : 0 , border : "1px solid white"}}>
         <div className="product-img">
           <img
             src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ab979bffbd658e74de650a15ca0092a3"
@@ -43,9 +43,8 @@ export function ProductCard() {
         <div className="product-rating">
           <p>⭐4.0</p> |<p>25 MINS</p> |<p>400 FOR TWO</p>
         </div>
-        <hr />
         <div className="product-offer">
-          <p>60% off | Use TRYNEW</p>
+          <p><strong>60% off | Use TRYNEW</strong></p>
         </div>
         <div className="product-view">
           <Button className="view-button" sx={style}>

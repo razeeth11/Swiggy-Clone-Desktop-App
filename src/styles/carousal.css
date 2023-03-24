@@ -6,7 +6,7 @@
   padding: 20px;
   min-height: 280px;
   width: 100%;
-  background-color: rgba(255, 166, 0, 0.464);
+  background-color:#282c3f;
 }
 
 .carousal img{
@@ -26,14 +26,8 @@
 }
 
 @keyframes slide{
-  0%{
-      transform: translateX(100);
-  }
-  25%{
-      transform: translateX(100);
-  }
   30%{
-      transform: translateX(-100%);
+      transform: translateX(-65%);
   }
 }
 
