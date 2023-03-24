@@ -7,12 +7,12 @@ import { IconButton } from "@mui/material";
 import { Routes, Route, Link } from "react-router-dom";
 import { ProductsPage } from "./ProductsPage";
 import { OfferPage } from "./OfferPage";
-import { TopNavBar } from "./TopNavBar";
+import { TopNavBar,Cart,Search } from "./TopNavBar";
 import { VerticalTabs1 } from "./HelpPage";
 import { About } from "./About";
 import { CityData } from "./CityData";
 import { AppStore } from "./AppStore";
-import { Cart } from "./TopNavBar";
+
 
 export function App() {
   return (
@@ -24,6 +24,7 @@ export function App() {
         <Route path="/offerPage" element={<OfferPage />} />
         <Route path="/helpPage" element={<VerticalTabs1 />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
       <About />
       <CityData />

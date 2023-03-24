@@ -60,6 +60,10 @@
   color: orange;
 }
 
+.top-two Button:focus{
+  color: orange;
+}
+
 .toolbar{
   padding: 0% !important;
 }
@@ -87,4 +91,29 @@
 
 .Cart img{
   margin: auto;
+}
+
+.Search{
+  height: 500px;
+}
+
+.MuiAutocomplete-popupIndicator{
+  display: none !important;
+}
+
+.Search{
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+   width: 850px;
+   margin: 50px auto;
+}
+
+.search-two{
+   display: flex;
+   gap: 15px;
+}
+
+.search-two img:hover{
+  cursor: pointer;
 }
