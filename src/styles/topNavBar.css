@@ -71,17 +71,17 @@
 .Cart{
    display: flex;
    flex-direction: column;
-   justify-content: center;
-   gap: 20px;
+   gap: 10px;
    width: 400px;
    text-align: center;
-   margin: auto;
-   padding: 80px 0;
+   margin: 40px auto;
+   padding: 0px;
+   height: 600px;
 }
 
 .Cart Button{
    width: 50%;
-   margin: auto;
+   margin: 10px auto;
    font-size: 11px;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .Cart img{
-  margin: auto;
+  margin: 10px auto;
 }
 
 .Search{
