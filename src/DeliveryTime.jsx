@@ -1,32 +1,18 @@
-import "./styles/productsCard.css";
-import "./styles/topNavBar.css";
-import "./styles/carousal.css";
+import * as React from "react";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
-import { Carousal } from "./Carousal";
-import { FilterBar } from "./FilterBar";
-import { useState } from "react";
 
-export function ProductsPage() {
 
- 
-  return (
-    <div className="products-page">
-      <Carousal />
-      <FilterBar  />
-    </div>
-  );
-}
-
-export function ProductList(){
+export function DeliveryTimeList(){
   return(
-    <div className="product-list">
-      <ProductCard/>
+    <div className="delivery-time-list">
+      <DeliveryTime/>
     </div>
   )
 }
 
-export function ProductCard() {
+export function DeliveryTime() {
+
   const style = {
     width: "100%",
     fontWeight: 900,

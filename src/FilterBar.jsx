@@ -6,6 +6,11 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { ProductCard } from "./ProductsPage";
+import { ProductList } from "./ProductsPage";
+import { DeliveryTimeList } from "./DeliveryTime";
+import { RatingList } from "./Rating";
+import { LowToHighList } from "./LowToHigh";
+import { HighToLowList } from "./HighToLow";
 
 export function FilterBar() {
   return (
@@ -49,53 +54,21 @@ export default function LabTabs() {
           </TabList>
         </Box>
         <TabPanel className="panel" value="1">
-          <ProductCard />
+          <ProductList />
         </TabPanel>
         <TabPanel className="panel" value="2">
-          <DeliveryTime/>
+          <DeliveryTimeList />
         </TabPanel>
         <TabPanel className="panel" value="3">
-        <Rating/>
+          <RatingList />
         </TabPanel>
         <TabPanel className="panel" value="4">
-          <LowToHigh/>
+          <LowToHighList />
         </TabPanel>
         <TabPanel className="panel" value="5">
-          <HighToLow/>
+          <HighToLowList />
         </TabPanel>
       </TabContext>
     </Box>
   );
-}
-
-function DeliveryTime(){
-  return(
-    <div className="delivery-time">
-      <h1>delivery</h1>
-    </div>
-  )
-}
-
-function Rating(){
-  return(
-    <div className="return">
-      <h1>Rating</h1>
-    </div>
-  )
-}
-
-function LowToHigh(){
-  return(
-    <div className="low-to-high">
-      <h1>Low To High</h1>
-    </div>
-  )
-}
-
-function HighToLow(){
-  return(
-    <div className="high-to-low">
-      <h1>High To Low</h1>
-    </div>
-  )
 }
