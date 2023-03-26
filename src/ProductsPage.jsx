@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import { Carousal } from "./Carousal";
 import { FilterBar } from "./FilterBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function ProductsPage() {
@@ -29,7 +29,7 @@ export function ProductList() {
 export function ProductCard() {
 
   const navigate = useNavigate();
-  
+
   const style = {
     width: "100%",
     fontWeight: 900,
