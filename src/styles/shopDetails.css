@@ -1,0 +1,100 @@
+.shop-details-page{
+  width:65%;
+  margin: auto;
+}
+
+.link{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 10px;
+}
+
+.link-one{
+  display: flex;
+  cursor: pointer;
+  gap: 5px;
+  font-size: 10px;
+}
+
+.shop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 20px 10px;
+}
+
+.shop-one{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.shop-two{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+hr{
+  border-top: 1px dashed grey;
+}
+
+.delivery-details{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.delivery-time,.delivery-price{
+  display: flex;
+  font-weight: 900;
+  text-transform: uppercase;
+  align-items: center;
+  gap: 5px;
+  width: 120px;
+}
+
+.delivery-one{
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+}
+
+.delivery-two{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.deliver-offers{
+  width: 170px;
+  padding: 10px;
+  border-radius: 5px;
+  color:  rgba(128, 128, 128, 1);
+  border: 0.5px solid rgba(128, 128, 128, 0.3);
+  box-shadow: 1px 1px 1px rgba(128, 128, 128, 0.3);
+}
+
+.deliver-offers p{
+  font-size: 10px;
+  font-weight: 550;
+}
+
+.accordion-details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  padding: 0 10px 30px 10px; 
+}
+
+.acco-two img{
+  border-radius: 10px;
+}

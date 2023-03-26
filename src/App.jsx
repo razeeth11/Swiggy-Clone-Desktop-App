@@ -14,6 +14,7 @@ import { VerticalTabs1 } from "./HelpPage";
 import { About } from "./About";
 import { CityData } from "./CityData";
 import { AppStore } from "./AppStore";
+import { ShopDetailsPage } from "./ShopDetailsPage";
 
 export function App() {
   return (
@@ -26,6 +27,7 @@ export function App() {
         <Route path="/helpPage" element={<VerticalTabs1 />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/shopDetails" element={<ShopDetailsPage />} />
       </Routes>
       <About />
       <CityData />
