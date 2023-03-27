@@ -6,7 +6,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import "./styles/offersPage.css";
 import Button from "@mui/material/Button";
-import { ProductCard } from "./ProductsPage";
+import { ProductList } from "./ProductsPage";
 import { useState } from "react";
 
 export function OfferPage() {
@@ -143,7 +143,7 @@ export default function LabTabs() {
           </TabList>
         </Box>
         <TabPanel value="1">
-          <ProductCard />
+          <ProductList />
         </TabPanel>
         <TabPanel className="paym" value="2">
           {payment.map((data, index) => (

@@ -81,10 +81,10 @@ export function ProductCard({
           <img src={img} alt="pizza-image" width="260px" />
         </div>
         <div className="product-details">
-          <h2>
+          <h1>
             <strong>{shopName}</strong>
-          </h2>
-          <p>P{cuisine}</p>
+          </h1>
+          <p>{cuisine}</p>
         </div>
         <div className="product-rating">
           <p style={rat}>⭐{rating}</p> 

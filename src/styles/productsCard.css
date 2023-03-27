@@ -45,18 +45,21 @@ hr{
   margin-top: 10px;
 }
 
-.product-details h2{
-   margin: 5px 0 0 0;
-   font-size: 16px;
+.product-details h1{
+   margin: 10px 0 0 0;
+   font-size: 15px;
+   text-transform: capitalize;
 }
 
 .product-details p{
    color: grey;
+   font-size: 11px;
+   padding: 7px 0;
 }
 
 .product-rating{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: 10px 0;
   color : gray
