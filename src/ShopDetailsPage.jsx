@@ -7,7 +7,6 @@ import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export function ShopDetailsPage() {
@@ -125,12 +124,10 @@ export function SimpleAccordion() {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header" >
-          <Typography sx={styles}>Recommended</Typography>
+           <h2>Recommended</h2>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography >
              <CompList/>
-          </Typography>
         </AccordionDetails>
       </Accordion>
     </div>

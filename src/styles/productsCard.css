@@ -1,5 +1,11 @@
+.product-list{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin: auto;
+}
+
 .product-card{
-  padding: 10px;
   width: 290px;
   cursor: pointer;
 }
@@ -14,13 +20,16 @@ hr{
 }
 
 .MuiPaper-rounded:hover {
-    border: 1px solid rgba(128, 128, 128, 0.307);
+    border: 1px solid rgba(128, 128, 128, 0.4);
     box-shadow: 0 5px 20px rgba(0,0,0,.1);
 }
 
 .product-offer{
+  display: flex;
+  align-items: center;
+  gap: 5px;
   color: #8a584b ;
-  font-weight: 400;
+  font-weight: 350;
   font-size: 13px;
   margin: 5px 0;
   padding: 5px 0 5px 5px;
@@ -41,18 +50,22 @@ hr{
    font-size: 16px;
 }
 
+.product-details p{
+   color: grey;
+}
+
 .product-rating{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 10px 0;
-  font-weight: 500;
+  color : gray
 }
 
 .product-rating p:nth-child(1){
-   background-color: rgb(0, 181, 0);
    color: white;
-   padding: 2px 5px;
+   padding: 2px 7px;
+   border-radius: 2px;
 }
 
 .product-card:hover .product-view{

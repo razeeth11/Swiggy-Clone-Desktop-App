@@ -27,6 +27,10 @@ export default function LabTabs() {
     setValue(newValue);
   };
 
+  const ss = {
+    fontSize : "13px"
+  }
+
   return (
     <Box sx={{ width: "100%" }}>
       <TabContext value={value}>
@@ -46,11 +50,11 @@ export default function LabTabs() {
             <h1>Restaurants</h1>
           </div>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="Relevance" value="1" />
-            <Tab label="Delivery Time" value="2" />
-            <Tab label="Rating" value="3" />
-            <Tab label="Cost : Low to High " value="4" />
-            <Tab label="Cost : High to Low " value="5" />
+            <Tab sx={ss} label="Relevance" value="1" />
+            <Tab sx={ss} label="Delivery Time" value="2" />
+            <Tab sx={ss} label="Rating" value="3" />
+            <Tab sx={ss} label="Cost : Low to High " value="4" />
+            <Tab sx={ss} label="Cost : High to Low " value="5" />
           </TabList>
         </Box>
         <TabPanel className="panel" value="1">
