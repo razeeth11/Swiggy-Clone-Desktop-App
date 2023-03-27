@@ -67,7 +67,7 @@ export function ProductCard({
   };
 
   return (
-    <div onClick={() => navigate(`/shopDetails`)} className="product-card">
+    <div onClick={() => navigate(`/shopDetails/${id}`)} className="product-card">
       <Card
         sx={{
           minWidth: 260,

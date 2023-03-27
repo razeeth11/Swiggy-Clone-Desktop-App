@@ -1,5 +1,7 @@
 import "./styles/filterbar.css";
 import * as React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -13,14 +15,25 @@ import { LowToHighList } from "./LowToHigh";
 import { HighToLowList } from "./HighToLow";
 
 export function FilterBar() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://swiggy-clone-backend-app.vercel.app/data")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
+
+  const totalRes = data.length
+
   return (
     <div className="filter-bar" id="down">
-      <LabTabs />
+      <LabTabs res={totalRes}/>
     </div>
   );
 }
 
-export default function LabTabs() {
+export default function LabTabs({res}) {
   const [value, setValue] = React.useState("1");
 
   const handleChange = (event, newValue) => {
@@ -47,7 +60,7 @@ export default function LabTabs() {
           }}
         >
           <div>
-            <h1>Restaurants</h1>
+            <h1>{res} Restaurants</h1>
           </div>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab sx={ss} label="Relevance" value="1" />
