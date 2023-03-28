@@ -1,24 +1,66 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
+import "./styles/productsCard.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 export function LowToHighList(){
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://swiggy-clone-backend.vercel.app/LowToHigh")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
+
   return(
     <div className="delivery-time-list">
-      <LowToHigh/>
+      {data.map((ev, index) => (
+        <LowToHigh
+          key={index}
+          id={ev.id}
+          img={ev.img}
+          shopName={ev.shopName}
+          cuisine={ev.cuisines}
+          rating={ev.rating}
+          delivery={ev.delivery}
+          price={ev.price}
+          offer={ev.offer}
+        />
+      ))}
     </div>
   )
 }
 
-export function LowToHigh() {
+export function LowToHigh({
+  id,
+  img,
+  shopName,
+  cuisine,
+  rating,
+  delivery,
+  price,
+  offer,
+}) {
+
+  const navigate = useNavigate();
+
   const style = {
     width: "100%",
     fontWeight: 900,
   };
 
+  const rat = {
+    backgroundColor: rating > 4 ? "#48c479" : "#FA5858",
+  };
+
   return (
-    <div className="product-card">
+    <div  onClick={() => navigate(`/shopDetails/${id}`)}
+    className="product-card">
       <Card
         sx={{
           minWidth: 260,
@@ -29,24 +71,29 @@ export function LowToHigh() {
         }}
       >
         <div className="product-img">
-          <img
-            src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ab979bffbd658e74de650a15ca0092a3"
-            alt="pizza-image"
-            width="260px"
-          />
+          <img src={img} alt="pizza-image" width="260px" />
         </div>
         <div className="product-details">
-          <h2>
-            <strong>Oven Story Pizza</strong>
-          </h2>
-          <p>Pizzas,italian</p>
+          <h1>
+            <strong>{shopName}</strong>
+          </h1>
+          <p>{cuisine}</p>
         </div>
         <div className="product-rating">
-          <p>⭐4.0</p> |<p>25 MINS</p> |<p>400 FOR TWO</p>
+          <p style={rat}>⭐{rating}</p>
+          <p>.</p>
+          <p>{delivery} MINS</p>
+          <p>.</p>
+          <p>{price} FOR TWO</p>
         </div>
         <div className="product-offer">
+          <img
+            src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_28,h_28/Store_Assets/Icons/OfferIconCart"
+            alt="offer-icon.png"
+            width="20px"
+          />
           <p>
-            <strong>60% off | Use TRYNEW</strong>
+            <strong>{offer}% off | Use TRYNEW</strong>
           </p>
         </div>
         <div className="product-view">

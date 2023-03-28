@@ -59,7 +59,7 @@ export default function LabTabs({ res }) {
           }}
         >
           <div>
-            <h1>{res} Restaurants</h1>
+            <h1>{res} {res ? "Restaurants" : "Fetching Data......"}</h1>
           </div>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab sx={ss} label="Relevance" value="1" />

@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import "./styles/productsCard.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function DeliveryTimeList() {
   const [data, setData] = useState([]);
@@ -43,6 +44,9 @@ export function DeliveryTime({
   price,
   offer,
 }) {
+
+  const navigate = useNavigate()
+
   const style = {
     width: "100%",
     fontWeight: 900,
@@ -53,7 +57,8 @@ export function DeliveryTime({
   };
 
   return (
-    <div className="product-card">
+    <div onClick={() => navigate(`/shopDetails/${id}`)} 
+    className="product-card">
       <Card
         sx={{
           minWidth: 260,

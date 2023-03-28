@@ -75,6 +75,10 @@ export function ShopDetailsPage() {
 function ShopDetailsComponent({ ShopDetails }) {
   const { shopName, cuisines, rating, delivery, price, city } = ShopDetails;
 
+  const rat = {
+    color: rating > 4 ? "green" : "red"
+  }
+
   return (
     <div className="shop-1">
       <div className="shop">
@@ -84,7 +88,7 @@ function ShopDetailsComponent({ ShopDetails }) {
           <p>{city}</p>
         </div>
         <div className="shop-two">
-          <p>{rating}</p>
+          <p style={rat} >{rating}</p>
           <p>1K+ ratings</p>
         </div>
       </div>
