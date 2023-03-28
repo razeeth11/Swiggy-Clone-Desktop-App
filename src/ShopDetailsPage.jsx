@@ -18,14 +18,14 @@ export function ShopDetailsPageList() {
 }
 
 export function ShopDetailsPage() {
-  const [ShopProducts, setShopProducts] = useState([]);
+  const [ShopDetails, setShopDetails] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://swiggy-clone-backend.vercel.app/shopDetails/${id}`)
       .then((res) => res.json())
-      .then((data) => setShopProducts(data));
+      .then((data) => setShopDetails(data));
   }, []);
 
   return (
@@ -38,19 +38,19 @@ export function ShopDetailsPage() {
           <div>/</div>
           <div onClick={() => navigate("/")}>Vannarpettai</div>
           <div>/</div>
-          <div>Anjappar</div>
+          <div>{ShopDetails ? ShopDetails.shopName : null}</div>
         </div>
         <div className="link-two">
           <SearchIcon />
         </div>
       </div>
-      <ShopDetailsComponent />
+      <ShopDetailsComponent ShopDetails={ShopDetails} />
       <hr />
 
       <div className="delivery-details">
         <div className="delivery-two">
           <div className="deliver-offers">
-            <h4>60% OFF UPTO 120</h4>
+            <h4>{ShopDetails.offer}% OFF UPTO 120</h4>
             <p>USE TRYNEW | ABOVE 149</p>
           </div>
           <div className="deliver-offers">
@@ -67,40 +67,42 @@ export function ShopDetailsPage() {
           </div>
         </div>
       </div>
-      <SimpleAccordion shopDetails={ShopProducts} />
+      <SimpleAccordion ShopDetails={ShopDetails} />
     </div>
   );
 }
 
-function ShopDetailsComponent() {
+function ShopDetailsComponent({ ShopDetails }) {
+  const { shopName, cuisines, rating, delivery, price, city } = ShopDetails;
+
   return (
     <div className="shop-1">
       <div className="shop">
         <div className="shop-one">
-          <h1>Anjappar</h1>
-          <p>Chettinad</p>
-          <p>Vannarpettaai</p>
+          <h1>{shopName}</h1>
+          <p>{cuisines}</p>
+          <p>{city}</p>
         </div>
         <div className="shop-two">
-          <p>3.8</p>
+          <p>{rating}</p>
           <p>1K+ ratings</p>
         </div>
       </div>
       <div className="delivery-one">
         <div className="delivery-time">
           <ScheduleIcon />
-          <p>22 MINS</p>
+          <p>{delivery} MINS</p>
         </div>
         <div className="delivery-price">
           <CurrencyRupeeIcon />
-          <p>300 for TWO</p>
+          <p>{price} for TWO</p>
         </div>
       </div>
     </div>
   );
 }
 
-export function SimpleAccordion({ shopDetails }) {
+export function SimpleAccordion({ ShopDetails }) {
   return (
     <div className="accordion">
       <Accordion
@@ -120,25 +122,27 @@ export function SimpleAccordion({ shopDetails }) {
           <h2>Recommended</h2>
         </AccordionSummary>
         <AccordionDetails>
-          {shopDetails.map((product, index) => (
-            <CompList
-              key={index}
-              dish={product.dishName}
-              img={product.dishImg}
-              items={product.items}
-              price={product.price}
-            />
-          ))}
+          <CompList shopDetails={ShopDetails} />
         </AccordionDetails>
       </Accordion>
     </div>
   );
 }
 
-function CompList({ dish, img, items, price }) {
+function CompList({ shopDetails }) {
+
+  const shopItems = shopDetails.shopItems
+
   return (
     <div>
-      <Comp dish={dish} img={img} items={items} price={price} />
+      {shopItems?.map((pr,index) => (
+        <Comp key={index}
+         dish={pr.dishName} 
+         img={pr.dishImg} 
+         items={pr.items} 
+         price={pr.price} 
+        />
+      ))}
     </div>
   );
 }

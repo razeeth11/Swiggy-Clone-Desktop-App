@@ -19,7 +19,9 @@ import { ShopDetailsPage } from "./ShopDetailsPage";
 export function App() {
   return (
     <div className="App">
-      <TopNavBar />
+      {
+        location.pathname == "/login" ? "" : <TopNavBar />
+      }
       <Routes>
         <Route path="/" element={<ProductsPage />} />
         <Route path="/login" element={<Login />} />
