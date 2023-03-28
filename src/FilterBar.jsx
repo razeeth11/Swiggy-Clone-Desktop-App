@@ -15,25 +15,24 @@ import { LowToHighList } from "./LowToHigh";
 import { HighToLowList } from "./HighToLow";
 
 export function FilterBar() {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://swiggy-clone-backend-app.vercel.app/data")
+    fetch("https://swiggy-clone-backend.vercel.app/data")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
 
-  const totalRes = data.length
+  const totalRes = data.length;
 
   return (
     <div className="filter-bar" id="down">
-      <LabTabs res={totalRes}/>
+      <LabTabs res={totalRes} />
     </div>
   );
 }
 
-export default function LabTabs({res}) {
+export default function LabTabs({ res }) {
   const [value, setValue] = React.useState("1");
 
   const handleChange = (event, newValue) => {
@@ -41,8 +40,8 @@ export default function LabTabs({res}) {
   };
 
   const ss = {
-    fontSize : "13px"
-  }
+    fontSize: "13px",
+  };
 
   return (
     <Box sx={{ width: "100%" }}>

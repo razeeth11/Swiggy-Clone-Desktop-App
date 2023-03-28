@@ -21,7 +21,7 @@ export function ProductList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://swiggy-clone-backend-app.vercel.app/data")
+    fetch("https://swiggy-clone-backend.vercel.app/data")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -67,7 +67,10 @@ export function ProductCard({
   };
 
   return (
-    <div onClick={() => navigate(`/shopDetails/${id}`)} className="product-card">
+    <div
+      onClick={() => navigate(`/shopDetails/${id}`)}
+      className="product-card"
+    >
       <Card
         sx={{
           minWidth: 260,
@@ -87,9 +90,9 @@ export function ProductCard({
           <p>{cuisine}</p>
         </div>
         <div className="product-rating">
-          <p style={rat}>⭐{rating}</p> 
+          <p style={rat}>⭐{rating}</p>
           <p>.</p>
-          <p>{delivery} MINS</p> 
+          <p>{delivery} MINS</p>
           <p>.</p>
           <p>{price} FOR TWO</p>
         </div>

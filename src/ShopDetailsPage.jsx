@@ -9,14 +9,21 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
+export function ShopDetailsPageList() {
+  return (
+    <div className="shop-details-list">
+      <ShopDetailsPage />
+    </div>
+  );
+}
+
 export function ShopDetailsPage() {
   const [ShopProducts, setShopProducts] = useState([]);
-  const [ShopDetails, setShopDetails] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://swiggy-clone-backend-app.vercel.app/shopDetails/${id}`)
+    fetch(`https://swiggy-clone-backend.vercel.app/shopDetails/${id}`)
       .then((res) => res.json())
       .then((data) => setShopProducts(data));
   }, []);
@@ -26,11 +33,11 @@ export function ShopDetailsPage() {
       <div className="link">
         <div className="link-one">
           <div onClick={() => navigate("/")}>Home</div>
-          <div>\</div>
+          <div>/</div>
           <div onClick={() => navigate("/")}>Tirunelveli</div>
-          <div>\</div>
+          <div>/</div>
           <div onClick={() => navigate("/")}>Vannarpettai</div>
-          <div>\</div>
+          <div>/</div>
           <div>Anjappar</div>
         </div>
         <div className="link-two">
@@ -96,7 +103,15 @@ function ShopDetailsComponent() {
 export function SimpleAccordion({ shopDetails }) {
   return (
     <div className="accordion">
-      <Accordion defaultExpanded={true}>
+      <Accordion
+        className="acc"
+        sx={{
+          borderRadius: 0,
+          boxShadow: 0,
+          border: "none",
+        }}
+        defaultExpanded={true}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -137,7 +152,9 @@ function Comp({ dish, img, items, price }) {
           <CurrencyRupeeIcon />
           <p>{price}</p>
         </div>
-        <p>{items}</p>
+        <div className="items">
+          <p>{items}</p>
+        </div>
       </div>
       <div className="acco-two">
         <img src={img} alt="" width="100px" />

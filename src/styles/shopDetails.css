@@ -96,6 +96,15 @@ hr{
   font-weight: 550;
 }
 
+.accordion{
+  margin-bottom: 50px;
+}
+
+.css-1xw6nvn-MuiPaper-root-MuiAccordion-root:first-of-type:hover {
+  box-shadow: 0 ;
+  border: none;
+} 
+
 .accordion-details{
   display: flex;
   justify-content: space-between;
@@ -104,12 +113,29 @@ hr{
   padding: 10px 10px 30px 10px; 
 }
 
+.acco-one h2{
+  font-size: 15px;
+  margin: 10px 0;
+}
+
 .acco-two img{
   border-radius: 10px;
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.items{
+  color: grey;
+}
+
+.acco-one p{
+  width: 550px;
 }
 
 .acco-price{
   display: flex;
   align-items: center;
   gap: 5px;
+  font-size: 12px;
 }
