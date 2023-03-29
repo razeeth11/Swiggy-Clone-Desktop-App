@@ -63,12 +63,12 @@ export function ProductCard({
   };
 
   const rat = {
-    backgroundColor: rating > 4 ? "#48c479" : "#FA5858",
+    backgroundColor: rating > 4 ? "#48c479" : "#db7c38",
   };
 
   return (
     <div
-      onClick={() => navigate(`/shopDetails/${id}`)}
+      onClick={() => navigate(`/shopDetails/${shopName}`)}
       className="product-card"
     >
       <Card

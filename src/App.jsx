@@ -23,10 +23,10 @@ export function App() {
         <Route path="/helpPage" element={<VerticalTabs1 />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/shopDetails/:id" element={<ShopDetailsPage />} />
+        <Route path="/shopDetails/:shopName" element={<ShopDetailsPage />} />
       </Routes>
       <About />
-      <CityData />
+      {/* <CityData /> */}
     </div>
   );
 }

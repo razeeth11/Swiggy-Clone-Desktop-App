@@ -19,11 +19,11 @@ export function ShopDetailsPageList() {
 
 export function ShopDetailsPage() {
   const [ShopDetails, setShopDetails] = useState([]);
-  const { id } = useParams();
+  const { shopName } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://swiggy-clone-backend.vercel.app/shopDetails/${id}`)
+    fetch(`https://swiggy-clone-backend.vercel.app/shopDetails/${shopName}`)
       .then((res) => res.json())
       .then((data) => setShopDetails(data));
   }, []);
@@ -135,7 +135,7 @@ export function SimpleAccordion({ ShopDetails }) {
 
 function CompList({ shopDetails }) {
 
-  const shopItems = shopDetails.shopItems
+  const {shopItems} = shopDetails
 
   return (
     <div>

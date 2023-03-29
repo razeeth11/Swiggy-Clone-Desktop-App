@@ -6,9 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-export function LowToHighList(){
-
+export function LowToHighList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,7 +15,7 @@ export function LowToHighList(){
       .then((data) => setData(data));
   }, []);
 
-  return(
+  return (
     <div className="delivery-time-list">
       {data.map((ev, index) => (
         <LowToHigh
@@ -33,7 +31,7 @@ export function LowToHighList(){
         />
       ))}
     </div>
-  )
+  );
 }
 
 export function LowToHigh({
@@ -46,7 +44,6 @@ export function LowToHigh({
   price,
   offer,
 }) {
-
   const navigate = useNavigate();
 
   const style = {
@@ -59,8 +56,10 @@ export function LowToHigh({
   };
 
   return (
-    <div  onClick={() => navigate(`/shopDetails/${id}`)}
-    className="product-card">
+    <div
+      onClick={() => navigate(`/shopDetails/${shopName}`)}
+      className="product-card"
+    >
       <Card
         sx={{
           minWidth: 260,

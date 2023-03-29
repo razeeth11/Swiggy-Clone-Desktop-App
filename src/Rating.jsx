@@ -44,8 +44,7 @@ export function Rating({
   price,
   offer,
 }) {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const style = {
     width: "100%",
@@ -57,8 +56,10 @@ export function Rating({
   };
 
   return (
-    <div onClick={() => navigate(`/shopDetails/${id}`)} 
-    className="product-card">
+    <div
+      onClick={() => navigate(`/shopDetails/${shopName}`)}
+      className="product-card"
+    >
       <Card
         sx={{
           minWidth: 260,
