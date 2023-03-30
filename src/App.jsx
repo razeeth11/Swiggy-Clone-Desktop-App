@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import "./styles/login.css";
 import { Routes, Route, Link } from "react-router-dom";
 import { ProductsPage } from "./ProductsPage";
@@ -26,7 +26,7 @@ export function App() {
         <Route path="/shopDetails/:shopName" element={<ShopDetailsPage />} />
       </Routes>
       <About />
-      {/* <CityData /> */}
+      <CityData />
     </div>
   );
 }

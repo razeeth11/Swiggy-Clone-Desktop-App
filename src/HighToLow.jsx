@@ -13,6 +13,7 @@ export function HighToLowList() {
     fetch("https://swiggy-clone-backend.vercel.app/HighToLow")
       .then((res) => res.json())
       .then((data) => setData(data));
+       window.scrollTo(0, 450)
   }, []);
 
   return (

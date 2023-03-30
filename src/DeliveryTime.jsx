@@ -13,6 +13,7 @@ export function DeliveryTimeList() {
     fetch("https://swiggy-clone-backend.vercel.app/deliveryTime")
       .then((res) => res.json())
       .then((data) => setData(data));
+       window.scrollTo(0, 450)
   }, []);
 
   return (

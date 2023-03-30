@@ -52,6 +52,7 @@
 
 hr{
   border-top: 1px dashed grey;
+  margin-top: 25px;
 }
 
 .delivery-details{
@@ -75,6 +76,7 @@ hr{
   font-size: 12px;
   align-items: center;
   margin: 20px 0;
+  color: rgb(0, 135, 0);
 }
 
 .delivery-two{
@@ -112,6 +114,7 @@ hr{
   align-items: center;
   border-bottom: 1px solid rgba(128, 128, 128, 0.5);
   padding: 10px 10px 30px 10px; 
+  cursor: pointer;
 }
 
 .acco-one h2{

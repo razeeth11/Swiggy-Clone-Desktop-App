@@ -5,42 +5,33 @@ export function About() {
         <h2>COMPANY</h2>
         <ul>
           <li>
-            {" "}
-            <a href="https://www.swiggy.com/about">About us</a>{" "}
+            <a href="https://www.swiggy.com/about">About us</a>
           </li>
           <li>
-            {" "}
-            <a href="https://www.swiggy.com/team">Team</a>{" "}
+            <a href="https://www.swiggy.com/team">Team</a>
           </li>
           <li>
-            {" "}
-            <a href="https://www.swiggy.com/careers">Careers</a>{" "}
+            <a href="https://www.swiggy.com/careers">Careers</a>
           </li>
           <li>
-            {" "}
-            <a href="https://blog.swiggy.com/">Swiggy Blog</a>{" "}
+            <a href="https://blog.swiggy.com/">Swiggy Blog</a>
           </li>
           <li>
-            {" "}
-            <a href="https://www.swiggy.com/bug-bounty">Bug Bounty</a>{" "}
+            <a href="https://www.swiggy.com/bug-bounty">Bug Bounty</a>
           </li>
           <li>
-            {" "}
-            <a href="https://www.swiggy.com/swiggy-super">Swiggy One</a>{" "}
+            <a href="https://www.swiggy.com/swiggy-super">Swiggy One</a>
           </li>
           <li>
-            {" "}
-            <a href="https://corporate.swiggy.com/">Swiggy Corporate</a>{" "}
+            <a href="https://corporate.swiggy.com/">Swiggy Corporate</a>
           </li>
           <li>
-            {" "}
             <a href="https://www.swiggy.com/swiggy-instamart">
               Swiggy Instamart
-            </a>{" "}
+            </a>
           </li>
           <li>
-            {" "}
-            <a href="https://www.swiggy.com/swiggy-genie">Swiggy Genie</a>{" "}
+            <a href="https://www.swiggy.com/swiggy-genie">Swiggy Genie</a>
           </li>
         </ul>
       </div>

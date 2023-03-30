@@ -26,6 +26,7 @@ export function ShopDetailsPage() {
     fetch(`https://swiggy-clone-backend.vercel.app/shopDetails/${shopName}`)
       .then((res) => res.json())
       .then((data) => setShopDetails(data));
+      window.scrollTo(0,0)
   }, []);
 
   return (
@@ -38,14 +39,13 @@ export function ShopDetailsPage() {
           <div>/</div>
           <div onClick={() => navigate("/")}>Vannarpettai</div>
           <div>/</div>
-          <div>{ShopDetails ? ShopDetails.shopName : null}</div>
+          <div>{ShopDetails.shopName}</div>
         </div>
         <div className="link-two">
           <SearchIcon />
         </div>
       </div>
       <ShopDetailsComponent ShopDetails={ShopDetails} />
-      <hr />
 
       <div className="delivery-details">
         <div className="delivery-two">
@@ -58,7 +58,7 @@ export function ShopDetailsPage() {
             <p>USE ICICINEW | ABOVE 700</p>
           </div>
           <div className="deliver-offers">
-            <h4>20% OFF UPTO 200</h4>
+            <h4>{ShopDetails.offer}% OFF UPTO 200</h4>
             <p>USE TRYNEW | ABOVE 149</p>
           </div>
           <div className="deliver-offers">
@@ -76,7 +76,7 @@ function ShopDetailsComponent({ ShopDetails }) {
   const { shopName, cuisines, rating, delivery, price, city } = ShopDetails;
 
   const rat = {
-    color: rating > 4 ? "green" : "red"
+    color: rating > 4 ? "green" : "red",
   }
 
   return (
@@ -88,10 +88,11 @@ function ShopDetailsComponent({ ShopDetails }) {
           <p>{city}</p>
         </div>
         <div className="shop-two">
-          <p style={rat} >{rating}</p>
+          <p style={rat} >⭐  {rating}</p>
           <p>1K+ ratings</p>
         </div>
       </div>
+      <hr />
       <div className="delivery-one">
         <div className="delivery-time">
           <ScheduleIcon />
