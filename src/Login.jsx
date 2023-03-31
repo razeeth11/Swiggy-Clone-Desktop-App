@@ -175,6 +175,7 @@ function SignUpCard({ signValue, setSignValue }) {
     </div>
   );
 }
+ 
 function Feature() {
   return (
     <div className="feature">

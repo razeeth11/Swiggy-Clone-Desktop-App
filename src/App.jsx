@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import "./styles/login.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import { ProductsPage } from "./ProductsPage";
 import { OfferPage } from "./OfferPage";
 import { TopNavBar } from "./TopNavBar";
@@ -17,7 +17,14 @@ export function App() {
     <div className="App">
       {location.pathname == "/login" ? "" : <TopNavBar />}
       <Routes>
-        <Route path="/" element={<ProductsPage />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <ProductsPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/offerPage" element={<OfferPage />} />
         <Route path="/helpPage" element={<VerticalTabs1 />} />
@@ -29,4 +36,10 @@ export function App() {
       <CityData />
     </div>
   );
+}
+
+function ProtectedRoute({ children }) {
+  const token = localStorage.getItem("token");
+
+  return token ? <div>{children}</div> : <Navigate replace to="/login" />
 }

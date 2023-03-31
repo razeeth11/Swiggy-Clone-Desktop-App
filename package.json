@@ -17,13 +17,16 @@
     "@mui/material": "^5.11.14",
     "@mui/styled-engine-sc": "^5.11.11",
     "bootstrap": "^5.3.0-alpha1",
+    "formik": "^2.2.9",
+    "formit": "^0.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.9.0",
     "react-scroll": "^1.8.9",
     "styled-components": "^5.3.9",
-    "useref": "^1.4.4"
+    "useref": "^1.4.4",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
