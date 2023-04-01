@@ -15,7 +15,6 @@ import { Login } from "./Login";
 export function App() {
   return (
     <div className="App">
-      {location.pathname == "/login" ? "" : <TopNavBar />}
       <Routes>
         <Route
           path="/"

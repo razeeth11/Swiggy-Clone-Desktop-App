@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { TopNavBar } from "./TopNavBar";
 
 export function Search() {
   const top100Films = [
@@ -110,7 +111,9 @@ export function Search() {
   const [value, setValue] = useState("");
 
   return (
-    <div className="Search">
+     <div>
+      <TopNavBar/>
+      <div className="Search">
       <div className="search-one">
         <Autocomplete
           id="combo-box-demo"
@@ -184,6 +187,7 @@ export function Search() {
         />
       </div>
     </div>
+     </div>
   );
 }
 

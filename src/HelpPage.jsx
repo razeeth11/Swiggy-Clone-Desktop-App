@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import { TopNavBar } from "./TopNavBar";
 
 
 export function TabPanel(props) {
@@ -53,7 +54,9 @@ export function VerticalTabs1() {
   };
 
   return (
-    <div className="help-page-box"> 
+    <div>
+      <TopNavBar/>
+      <div className="help-page-box"> 
       <div className="div1">
       <h1 className="h1">Help & Support</h1>
       <p className="p">Let's take a step ahead and help you better.</p>
@@ -93,6 +96,7 @@ export function VerticalTabs1() {
       </Box>
     </div>
     </div>  
+    </div>
   );
 }
 

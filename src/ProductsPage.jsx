@@ -13,6 +13,7 @@ import { TopNavBar } from "./TopNavBar";
 export function ProductsPage() {
   return (
     <div className="products-page">
+       <TopNavBar />
       <Carousal />
       <FilterBar />
     </div>

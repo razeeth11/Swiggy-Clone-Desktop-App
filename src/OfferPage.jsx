@@ -9,10 +9,12 @@ import Button from "@mui/material/Button";
 import { ProductList } from "./ProductsPage";
 import { useState, useEffect } from "react";
 import { API } from "./API";
+import { TopNavBar } from "./TopNavBar";
 
 export function OfferPage() {
   return (
     <div>
+      <TopNavBar/>
       <div className="offer-page">
         <div className="offers-one">
           <h1>Offers For You</h1>
