@@ -3,6 +3,9 @@ import Alert from "@mui/material/Alert";
 import CloseIcon from "@mui/icons-material/Close";
 import { IconButton } from "@mui/material";
 import { AppStore } from "./AppStore";
+import { useFormik } from "formik";
+import { API } from "./API";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
   const [value, setValue] = useState("");
@@ -97,14 +100,32 @@ export function LogInCard({ logValue, setLogValue }) {
     display: logValue ? "block" : "none",
   };
 
+  const navigate = useNavigate()
+
+  const [state, setState] = useState(false);
+
   const alert = {
     width: "100%",
     boxSizing: "border-box",
     fontSize: "13px",
   };
 
-  const [login, setLogin] = useState("");
-  const [state, setState] = useState(false);
+  const formik = useFormik({
+    initialValues: { PhoneNumber: 7397661088 },
+    onSubmit: async (values) => {
+      const data = await fetch(`${API}/LogIn`, {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      const result = await data.json();
+      if(result.Token != undefined){
+        localStorage.setItem('token' , result.Token)
+        navigate("/")
+      }
+    },
+  });
 
   return (
     <div style={style} className="login-card">
@@ -115,26 +136,26 @@ export function LogInCard({ logValue, setLogValue }) {
         <h1>Login</h1>
         <p>or create an account </p>
       </div>
-      <div className="login-card-two">
-        <input
-          onChange={(ev) => setLogin(ev.target.value)}
-          className="input"
-          type="number"
-          placeholder="Phone number"
-        />
-        {state ? (
-          <Alert sx={alert} severity="error">
-            <strong>Enter your Phone number</strong>
-          </Alert>
-        ) : null}
-      </div>
-      <button
-        onClick={() => setState(login == "")}
-        className="but"
-        type="submit"
-      >
-        LOGIN
-      </button>
+      <form onSubmit={formik.handleSubmit}>
+        <div className="login-card-two">
+          <input
+            onChange={formik.handleChange}
+            name="PhoneNumber"
+            className="input"
+            type="number"
+            value={formik.values.PhoneNumber}
+            placeholder="Phone number"
+          />
+          {state ? (
+            <Alert sx={alert} severity="error">
+              <strong>Enter your Phone number</strong>
+            </Alert>
+          ) : null}
+        </div>
+        <button className="but" type="submit">
+          LOGIN
+        </button>
+      </form>
       <div className="login-card-three">
         <p>
           By clicking on Login, I accept the Terms & Conditions & Privacy Policy
@@ -143,6 +164,7 @@ export function LogInCard({ logValue, setLogValue }) {
     </div>
   );
 }
+
 function SignUpCard({ signValue, setSignValue }) {
   const style = {
     display: signValue ? "block" : "none",
@@ -175,7 +197,7 @@ function SignUpCard({ signValue, setSignValue }) {
     </div>
   );
 }
- 
+
 function Feature() {
   return (
     <div className="feature">

@@ -52,12 +52,12 @@ export function TopNavBar() {
                 Help
               </Button>
             </div>
-            <div className="person">
+            {/* <div className="person">
               <Button>
                 <PersonIcon />
                 Sign In
               </Button>
-            </div>
+            </div> */}
             <div className="cart">
               <Button onClick={() => navigate("/cart")}>
                 <ShoppingBagIcon />

@@ -7,6 +7,8 @@ import { Carousal } from "./Carousal";
 import { FilterBar } from "./FilterBar";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API } from "./API";
+import { TopNavBar } from "./TopNavBar";
 
 export function ProductsPage() {
   return (
@@ -21,9 +23,9 @@ export function ProductList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://swiggy-clone-backend.vercel.app/data")
+    fetch(`${API}/data`)
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => setData(data))
   }, []);
 
   return (

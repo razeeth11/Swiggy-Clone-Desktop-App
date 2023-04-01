@@ -1,11 +1,12 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import { API } from "./API";
+
 
 export function CityData() {
-
   const [city, setCity] = useState([]);
 
   useEffect(() => {
-    fetch("https://swiggy-clone-backend.vercel.app/CityLinks")
+    fetch(`${API}/CityLinks`)
       .then((res) => res.json())
       .then((data) => setCity(data));
   }, []);

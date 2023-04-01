@@ -41,5 +41,5 @@ export function App() {
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
 
-  return token ? <div>{children}</div> : <Navigate replace to="/login" />
+  return token ? <div>{children}</div> : <Navigate replace to="/login" /> 
 }

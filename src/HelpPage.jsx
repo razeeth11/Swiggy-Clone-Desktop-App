@@ -11,6 +11,92 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 
+
+export function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `vertical-tab-${index}`,
+    "aria-controls": `vertical-tabpanel-${index}`,
+  };
+}
+
+export function VerticalTabs1() {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className="help-page-box"> 
+      <div className="div1">
+      <h1 className="h1">Help & Support</h1>
+      <p className="p">Let's take a step ahead and help you better.</p>
+      </div>
+    <div className="help-box">
+      <Box
+        sx={{
+          flexGrow: 1,
+          bgcolor: "background.paper",
+          display: "flex",
+          minHeight: "510px",
+        }}
+      >
+        <Tabs
+          className="tabs"
+          orientation="vertical"
+          variant="scrollable"
+          value={value}
+          onChange={handleChange}
+          aria-label="Vertical tabs example"
+          sx={{ borderRight: 1, borderColor: "divider" }}
+        >
+          <Tab label="Partner Onboarding" {...a11yProps(0)} />
+          <Tab label="Legal" {...a11yProps(1)} />
+          <Tab label="FAQ's" {...a11yProps(2)} />
+        </Tabs>
+
+        <TabPanel value={value} index={0}>
+          <HelpPage1 />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <HelpPage2 />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <HelpPage3 />
+        </TabPanel>
+      </Box>
+    </div>
+    </div>  
+  );
+}
+
+
 export function HelpPage1() {
   return (
     <div className="help-page">
@@ -413,91 +499,5 @@ export function HelpPage3() {
         </AccordionDetails>
       </Accordion>
     </div>
-  );
-}
-
-
-
-export function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `vertical-tab-${index}`,
-    "aria-controls": `vertical-tabpanel-${index}`,
-  };
-}
-
-export function VerticalTabs1() {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <div className="help-page-box">
-      <div className="div1">
-      <h1 className="h1">Help & Support</h1>
-      <p className="p">Let's take a step ahead and help you better.</p>
-      </div>
-    <div className="help-box">
-      <Box
-        sx={{
-          flexGrow: 1,
-          bgcolor: "background.paper",
-          display: "flex",
-          minHeight: "510px",
-        }}
-      >
-        <Tabs
-          className="tabs"
-          orientation="vertical"
-          variant="scrollable"
-          value={value}
-          onChange={handleChange}
-          aria-label="Vertical tabs example"
-          sx={{ borderRight: 1, borderColor: "divider" }}
-        >
-          <Tab label="Partner Onboarding" {...a11yProps(0)} />
-          <Tab label="Legal" {...a11yProps(1)} />
-          <Tab label="FAQ's" {...a11yProps(2)} />
-        </Tabs>
-
-        <TabPanel value={value} index={0}>
-          <HelpPage1 />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <HelpPage2 />
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <HelpPage3 />
-        </TabPanel>
-      </Box>
-    </div>
-    </div>  
   );
 }

@@ -7,9 +7,8 @@ import TabPanel from "@mui/lab/TabPanel";
 import "./styles/offersPage.css";
 import Button from "@mui/material/Button";
 import { ProductList } from "./ProductsPage";
-import { useState,useEffect } from "react";
-
-
+import { useState, useEffect } from "react";
+import { API } from "./API";
 
 export function OfferPage() {
   return (
@@ -34,14 +33,15 @@ export function OfferPage() {
 
 export default function LabTabs() {
   const [value, setValue] = React.useState("1");
-  const [paymentOffers,setPaymentOffers] = useState([])
+  const [paymentOffers, setPaymentOffers] = useState([]);
 
   useEffect(() => {
-    fetch("https://swiggy-clone-backend.vercel.app/paymentOffers")
-      .then((res) => res.json())
-      .then((data) => setPaymentOffers(data));
-      window.scrollTo(0,0)
+    fetch(`${API}/paymentOffers`)
+    .then((res) => res.json())
+    .then((data)=> setPaymentOffers(data));
+    window.scrollTo(0, 0);
   }, []);
+  `${API}`;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

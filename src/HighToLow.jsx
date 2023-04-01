@@ -5,15 +5,16 @@ import "./styles/productsCard.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { API } from "./API";
 
 export function HighToLowList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://swiggy-clone-backend.vercel.app/HighToLow")
+    fetch(`${API}/HighToLow`)
       .then((res) => res.json())
       .then((data) => setData(data));
-       window.scrollTo(0, 450)
+    window.scrollTo(0, 450);
   }, []);
 
   return (

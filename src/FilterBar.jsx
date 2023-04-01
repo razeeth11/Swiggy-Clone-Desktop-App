@@ -7,18 +7,18 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { ProductCard } from "./ProductsPage";
 import { ProductList } from "./ProductsPage";
 import { DeliveryTimeList } from "./DeliveryTime";
 import { RatingList } from "./Rating";
 import { LowToHighList } from "./LowToHigh";
 import { HighToLowList } from "./HighToLow";
+import { API } from "./API";
 
 export function FilterBar() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://swiggy-clone-backend.vercel.app/data")
+    fetch(`${API}/data`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -59,7 +59,9 @@ export default function LabTabs({ res }) {
           }}
         >
           <div>
-            <h1>{res} {res ? "Restaurants" : "Fetching Data....."}</h1>
+            <h1>
+              {res} {res ? "Restaurants" : "Fetching Data....."}
+            </h1>
           </div>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab sx={ss} label="Relevance" value="1" />

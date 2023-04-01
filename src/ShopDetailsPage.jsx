@@ -8,6 +8,9 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { API } from "./API";
+import { TopNavBar } from "./TopNavBar";
+
 
 export function ShopDetailsPageList() {
   return (
@@ -23,14 +26,16 @@ export function ShopDetailsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://swiggy-clone-backend.vercel.app/shopDetails/${shopName}`)
+    fetch(`${API}/shopDetails/${shopName}`)
       .then((res) => res.json())
       .then((data) => setShopDetails(data));
       window.scrollTo(0,0)
   }, []);
 
   return (
-    <div className="shop-details-page">
+    <div>
+      <TopNavBar/>
+      <div className="shop-details-page">
       <div className="link">
         <div className="link-one">
           <div onClick={() => navigate("/")}>Home</div>
@@ -68,6 +73,7 @@ export function ShopDetailsPage() {
         </div>
       </div>
       <SimpleAccordion ShopDetails={ShopDetails} />
+    </div>
     </div>
   );
 }
