@@ -103,6 +103,7 @@ export function LogInCard({ logValue, setLogValue }) {
   const navigate = useNavigate()
 
   const [state, setState] = useState(false);
+  const [formState,setFormState] = useState(false)
 
   const alert = {
     width: "100%",
@@ -123,6 +124,8 @@ export function LogInCard({ logValue, setLogValue }) {
       if(result.Token != undefined){
         localStorage.setItem('token' , result.Token)
         navigate("/")
+      } else {
+        setFormState(true)
       }
     },
   });
@@ -146,9 +149,9 @@ export function LogInCard({ logValue, setLogValue }) {
             value={formik.values.PhoneNumber}
             placeholder="Phone number"
           />
-          {state ? (
+          {formState ? (
             <Alert sx={alert} severity="error">
-              <strong>Enter your Phone number</strong>
+              <strong>Use the default one to LOGIN ( Invalid Credentials )</strong>
             </Alert>
           ) : null}
         </div>

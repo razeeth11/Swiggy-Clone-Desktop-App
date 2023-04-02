@@ -24,7 +24,11 @@ export function ProductList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`${API}/data`)
+    fetch(`${API}/data` , {
+      headers : {
+        'x-auth-token' : localStorage.getItem('token')
+      }
+    })
       .then((res) => res.json())
       .then((data) => setData(data))
   }, []);
