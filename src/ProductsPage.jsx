@@ -31,6 +31,7 @@ export function ProductList() {
     })
       .then((res) => res.json())
       .then((data) => setData(data))
+      window.scrollTo(0,450)
   }, []);
 
   return (
