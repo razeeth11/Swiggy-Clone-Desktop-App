@@ -180,7 +180,11 @@ function SignUpCard({ signValue, setSignValue ,setLogValue}) {
 
   const signValidation = yup.object({
     name : yup.string().required("Required Field"),
-    phoneNumber : yup.number().required("Required Field"),
+    phoneNumber : yup.string()
+    .required()
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .min(10, 'Enter the valid number')
+    .max(10, 'Enter the valid number'),
     email : yup.string().email().required("Required Field"),
   })
 
@@ -215,30 +219,33 @@ function SignUpCard({ signValue, setSignValue ,setLogValue}) {
         <div className="sign-card-two">
           <TextField
             onChange={signUpFormik.handleChange}
+            onBlur={signUpFormik.handleBlur}
             name="phoneNumber"
             className="input"
             type="number"
             placeholder="Phone number"
-            error={signUpFormik.errors.phoneNumber}
-            helperText={signUpFormik.errors.phoneNumber}
+            error={signUpFormik.touched.phoneNumber && signUpFormik.errors.phoneNumber ? signUpFormik.errors.phoneNumber : null}
+            helperText={signUpFormik.touched.phoneNumber && signUpFormik.errors.phoneNumber ? signUpFormik.errors.phoneNumber : null}
           />
           <TextField
             onChange={signUpFormik.handleChange}
+            onBlur={signUpFormik.handleBlur}
             name="name"
             className="input"
             type="text"
             placeholder="Name"
-            error={signUpFormik.errors.name}
-            helperText={signUpFormik.errors.name}
+            error={signUpFormik.touched.name && signUpFormik.errors.name ? signUpFormik.errors.name : null}
+            helperText={signUpFormik.touched.name && signUpFormik.errors.name ? signUpFormik.errors.name : null}
           />
           <TextField
             onChange={signUpFormik.handleChange}
+            onBlur={signUpFormik.handleBlur}
             name="email"
             className="input"
             type="email"
             placeholder="Email"
-            error={signUpFormik.errors.email}
-            helperText={signUpFormik.errors.email}
+            error={signUpFormik.touched.email && signUpFormik.errors.email ? signUpFormik.errors.email : null}
+            helperText={signUpFormik.touched.email && signUpFormik.errors.email ? signUpFormik.errors.email : null}
           />
         </div>
         <h3>Have a referral code?</h3>
