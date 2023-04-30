@@ -70,7 +70,9 @@ export function Login() {
             <Alert sx={style} severity="error">
               <strong>Enter your delivery location</strong>
             </Alert>
-          ) : null}
+          ) : <Alert sx={style} severity="success">
+          <strong>Log In to continue</strong>
+            </Alert>}
 
           <div className="city">
             <p>POPULAR CITIES IN INDIA</p>
