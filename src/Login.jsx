@@ -6,6 +6,8 @@ import { AppStore } from "./AppStore";
 import { useFormik } from "formik";
 import { API } from "./API";
 import { useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import * as yup from 'yup';
 
 export function Login() {
   const [value, setValue] = useState("");
@@ -30,7 +32,7 @@ export function Login() {
   return (
     <div className="log-in-page">
       <LogInCard logValue={logValue} setLogValue={setLogValue} />
-      <SignUpCard signValue={signValue} setSignValue={setSignValue} />
+      <SignUpCard signValue={signValue} setSignValue={setSignValue} setLogValue={setLogValue}/>
       <div className="welcome-page">
         <div className="content">
           <div className="logo">
@@ -100,10 +102,10 @@ export function LogInCard({ logValue, setLogValue }) {
     display: logValue ? "block" : "none",
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [state, setState] = useState(false);
-  const [formState,setFormState] = useState(false)
+  const [formState, setFormState] = useState(false);
 
   const alert = {
     width: "100%",
@@ -111,7 +113,7 @@ export function LogInCard({ logValue, setLogValue }) {
     fontSize: "13px",
   };
 
-  const formik = useFormik({
+  const loginFormik = useFormik({
     initialValues: { PhoneNumber: 7397661088 },
     onSubmit: async (values) => {
       const data = await fetch(`${API}/LogIn`, {
@@ -119,13 +121,14 @@ export function LogInCard({ logValue, setLogValue }) {
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(values),
       });
+      console.log(values)
 
       const result = await data.json();
-      if(result.Token != undefined){
-        localStorage.setItem('token' , result.Token)
-        navigate("/")
+      if (result.Token != undefined) {
+        localStorage.setItem("token", result.Token);
+        navigate("/");
       } else {
-        setFormState(true)
+        setFormState(true);
       }
     },
   });
@@ -139,19 +142,21 @@ export function LogInCard({ logValue, setLogValue }) {
         <h1>Login</h1>
         <p>or create an account </p>
       </div>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={loginFormik.handleSubmit}>
         <div className="login-card-two">
           <input
-            onChange={formik.handleChange}
+            onChange={loginFormik.handleChange}
             name="PhoneNumber"
             className="input"
             type="number"
-            value={formik.values.PhoneNumber}
+            value={loginFormik.values.PhoneNumber}
             placeholder="Phone number"
           />
           {formState ? (
             <Alert sx={alert} severity="error">
-              <strong>Use the default one to LOGIN ( Invalid Credentials )</strong>
+              <strong>
+                Invalid Credentials or Sign Up to continue
+              </strong>
             </Alert>
           ) : null}
         </div>
@@ -168,10 +173,34 @@ export function LogInCard({ logValue, setLogValue }) {
   );
 }
 
-function SignUpCard({ signValue, setSignValue }) {
+function SignUpCard({ signValue, setSignValue ,setLogValue}) {
   const style = {
     display: signValue ? "block" : "none",
   };
+
+  const signValidation = yup.object({
+    name : yup.string().required("Required Field"),
+    phoneNumber : yup.number().required("Required Field"),
+    email : yup.string().email().required("Required Field"),
+  })
+
+  const signUpFormik = useFormik({
+    initialValues: {
+      name : "",
+      phoneNumber: "",
+      email : ""
+    },
+    validationSchema : signValidation,
+    onSubmit: async (values) => {
+      const data = await fetch(`${API}/signUp`, {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      setSignValue(false)
+      setLogValue(true)
+    },
+  });
 
   return (
     <div style={style} className="sign-card">
@@ -182,21 +211,47 @@ function SignUpCard({ signValue, setSignValue }) {
         <h1>Sign Up</h1>
         <p>or log into your account </p>
       </div>
-      <div className="sign-card-two">
-        <input className="input" type="number" placeholder="Phone number" />
-        <input className="input" type="text" placeholder="Name" />
-        <input className="input" type="email" placeholder="Email" />
-      </div>
-      <h3>Have a referral code?</h3>
-      <button className="but" type="submit">
-        CONTINUE
-      </button>
-      <div className="sign-card-three">
-        <p>
-          By creating on account, I accept the Terms & Conditions & Privacy
-          Policy
-        </p>
-      </div>
+      <form onSubmit={signUpFormik.handleSubmit}>
+        <div className="sign-card-two">
+          <TextField
+            onChange={signUpFormik.handleChange}
+            name="phoneNumber"
+            className="input"
+            type="number"
+            placeholder="Phone number"
+            error={signUpFormik.errors.phoneNumber}
+            helperText={signUpFormik.errors.phoneNumber}
+          />
+          <TextField
+            onChange={signUpFormik.handleChange}
+            name="name"
+            className="input"
+            type="text"
+            placeholder="Name"
+            error={signUpFormik.errors.name}
+            helperText={signUpFormik.errors.name}
+          />
+          <TextField
+            onChange={signUpFormik.handleChange}
+            name="email"
+            className="input"
+            type="email"
+            placeholder="Email"
+            error={signUpFormik.errors.email}
+            helperText={signUpFormik.errors.email}
+          />
+        </div>
+        <h3>Have a referral code?</h3>
+        <button className="but" type="submit">
+          CONTINUE
+        </button>
+        <div className="sign-card-three">
+          <p>
+            By creating on account, I accept the Terms & Conditions & Privacy
+            Policy
+          </p>
+        </div>
+      </form>
     </div>
   );
 }
@@ -243,5 +298,3 @@ function Feature() {
     </div>
   );
 }
-
-
