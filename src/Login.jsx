@@ -107,7 +107,7 @@ export function LogInCard({ logValue, setLogValue }) {
 
   const logValidation = yup.object({
     PhoneNumber : yup.string()
-    .required()
+    .required("Enter the phone number")
     .matches(/^[0-9]+$/, "Must be only digits")
     .min(10, 'Enter the valid number')
     .max(10, 'Enter the valid number'),
@@ -131,14 +131,13 @@ export function LogInCard({ logValue, setLogValue }) {
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(values),
       });
-      console.log(values)
 
       const result = await data.json();
-      if (result.Token != undefined){
+      if (data.status == 400){
+        setFormState(true);
+      } else {
         localStorage.setItem("token", result.Token);
         navigate("/");
-      } else {
-        setFormState(true);
       }
     },
   });
@@ -165,7 +164,7 @@ export function LogInCard({ logValue, setLogValue }) {
             helperText={loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber ? loginFormik.errors.PhoneNumber : null}
           />
           {formState ? (
-            <Alert sx={alert} severity="error">
+            <Alert sx={alert} className="ale" severity="error">
               <strong>
                 Invalid Credentials or Sign Up to continue
               </strong>
