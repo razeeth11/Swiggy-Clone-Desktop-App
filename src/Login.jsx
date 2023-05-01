@@ -192,7 +192,7 @@ function SignUpCard({ signValue, setSignValue ,setLogValue}) {
   const signValidation = yup.object({
     name : yup.string().required("Required Field"),
     phoneNumber : yup.string()
-    .required()
+    .required("Required Field")
     .matches(/^[0-9]+$/, "Must be only digits")
     .min(10, 'Enter the valid number')
     .max(10, 'Enter the valid number'),
