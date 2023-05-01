@@ -190,13 +190,13 @@ function SignUpCard({ signValue, setSignValue ,setLogValue}) {
   };
 
   const signValidation = yup.object({
-    name : yup.string().required("Required Field"),
+    name : yup.string().required("Enter Your Name"),
     phoneNumber : yup.string()
     .required("Required Field")
     .matches(/^[0-9]+$/, "Must be only digits")
     .min(10, 'Enter the valid number')
     .max(10, 'Enter the valid number'),
-    email : yup.string().email().required("Required Field"),
+    email : yup.string().email().required("Enter Your Email"),
   })
 
   const signUpFormik = useFormik({
