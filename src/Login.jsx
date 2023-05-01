@@ -100,11 +100,18 @@ export function Login() {
 }
 
 export function LogInCard({ logValue, setLogValue }) {
+  const navigate = useNavigate();
   const style = {
     display: logValue ? "block" : "none",
   };
 
-  const navigate = useNavigate();
+  const logValidation = yup.object({
+    PhoneNumber : yup.string()
+    .required()
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .min(10, 'Enter the valid number')
+    .max(10, 'Enter the valid number'),
+  })
 
   const [state, setState] = useState(false);
   const [formState, setFormState] = useState(false);
@@ -116,7 +123,8 @@ export function LogInCard({ logValue, setLogValue }) {
   };
 
   const loginFormik = useFormik({
-    initialValues: { PhoneNumber: 7397661088 },
+    initialValues: { PhoneNumber: "" },
+    validationSchema : logValidation,
     onSubmit: async (values) => {
       const data = await fetch(`${API}/LogIn`, {
         method: "POST",
@@ -126,7 +134,7 @@ export function LogInCard({ logValue, setLogValue }) {
       console.log(values)
 
       const result = await data.json();
-      if (result.Token != undefined) {
+      if (result.Token != undefined){
         localStorage.setItem("token", result.Token);
         navigate("/");
       } else {
@@ -146,13 +154,15 @@ export function LogInCard({ logValue, setLogValue }) {
       </div>
       <form onSubmit={loginFormik.handleSubmit}>
         <div className="login-card-two">
-          <input
+          <TextField
             onChange={loginFormik.handleChange}
             name="PhoneNumber"
             className="input"
             type="number"
             value={loginFormik.values.PhoneNumber}
             placeholder="Phone number"
+            error={loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber ? loginFormik.errors.PhoneNumber : null}
+            helperText={loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber ? loginFormik.errors.PhoneNumber : null}
           />
           {formState ? (
             <Alert sx={alert} severity="error">
