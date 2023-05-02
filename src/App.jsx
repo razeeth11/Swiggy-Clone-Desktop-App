@@ -25,11 +25,46 @@ export function App() {
           }
         />
         <Route path="/login" element={<Login />} />
-        <Route path="/offerPage" element={<OfferPage />} />
-        <Route path="/helpPage" element={<VerticalTabs1 />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/shopDetails/:shopName" element={<ShopDetailsPage />} />
+        <Route
+          path="/offerPage"
+          element={
+            <ProtectedRoute>
+              <OfferPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/helpPage"
+          element={
+            <ProtectedRoute>
+              <VerticalTabs1 />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <ProtectedRoute>
+              <Search />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/shopDetails/:shopName"
+          element={
+            <ProtectedRoute>
+              <ShopDetailsPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <About />
       <CityData />
@@ -39,6 +74,5 @@ export function App() {
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
-
-  return token ? <div>{children}</div> : <Navigate replace to="/login" /> 
+  return token ? <div>{children}</div> : <Navigate replace to="/login" />;
 }
