@@ -9,12 +9,18 @@ import * as yup from "yup";
 import { API } from "./API";
 import { AppStore } from "./AppStore";
 import {
+  alertBox,
   content,
+  feature,
+  featureOne,
+  loginButton,
+  loginCard,
   logo,
   logSignButton,
   marketHead,
   pincode,
   pincodeButton,
+  signCard,
   welcomePage
 } from "./styles/loginStyles";
 
@@ -75,7 +81,7 @@ export function Login() {
             <div>
               <input
                 style={{
-                  maxWidth: "400px",
+                  width: "100%",
                   padding: "10px",
                   border: "none",
                   fontSize: "16px",
@@ -96,20 +102,30 @@ export function Login() {
             </div>
           </div>
           {state ? (
-            <Alert sx={{ fontSize: "14px" }} severity="error">
+            <Alert
+              sx={alertBox}
+              severity="error"
+            >
               <strong>Enter your delivery location</strong>
             </Alert>
           ) : (
-            <Alert sx={{ fontSize: "14px" }} severity="success">
+            <Alert
+              sx={alertBox}
+              severity="success"
+            >
               <strong>Log In to continue</strong>
             </Alert>
           )}
 
           <div style={{ color: "grey", marginTop: "40px", fontSize: "16px" }}>
-            <p style={{marginTop: '10px'}}>POPULAR CITIES IN INDIA</p>
-            <p style={{marginTop: '15px',
-  maxWidth: '600px',
-  wordSpacing: '10px',}}>
+            <p style={{ marginTop: "10px" }}>POPULAR CITIES IN INDIA</p>
+            <p
+              style={{
+                marginTop: "15px",
+                maxWidth: "600px",
+                wordSpacing: "10px",
+              }}
+            >
               <strong>
                 Ahmedabad Bangalore Chennai Delhi,Gurgaon Hyderabad Kolkata
                 Mumbai Pune& more.
@@ -118,7 +134,7 @@ export function Login() {
           </div>
         </div>
 
-        <div className="image">
+        <div>
           <img
             src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_1340/Lunch1_vlksgq"
             alt="swiggy-dish-cover-image.jpeg"
@@ -134,9 +150,6 @@ export function Login() {
 
 export function LogInCard({ logValue, setLogValue }) {
   const navigate = useNavigate();
-  const style = {
-    display: logValue ? "block" : "none",
-  };
 
   const logValidation = yup.object({
     PhoneNumber: yup
@@ -147,7 +160,6 @@ export function LogInCard({ logValue, setLogValue }) {
       .max(10, "Enter the valid number"),
   });
 
-  const [state, setState] = useState(false);
   const [formState, setFormState] = useState(false);
 
   const alert = {
@@ -176,59 +188,90 @@ export function LogInCard({ logValue, setLogValue }) {
     },
   });
 
+  const inputStyle = {
+    boxSizing: "border-box",
+    width: "100%",
+    fontSize: "16px",
+    outline: "none",
+    "&:focus" : {
+      outline: 'none',
+      border :' none',
+      display : 'none'
+    }
+  };
+
   return (
-    <div style={style} className="login-card">
-      <IconButton onClick={() => setLogValue(false)}>
-        <CloseIcon />
-      </IconButton>
-      <div className="login-card-one">
-        <h1>Login</h1>
-        <p>or create an account </p>
-      </div>
-      <form onSubmit={loginFormik.handleSubmit}>
-        <div className="login-card-two">
-          <TextField
-            onChange={loginFormik.handleChange}
-            name="PhoneNumber"
-            className="input"
-            type="number"
-            value={loginFormik.values.PhoneNumber}
-            placeholder="Phone number"
-            error={
-              loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber
-                ? loginFormik.errors.PhoneNumber
-                : null
-            }
-            helperText={
-              loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber
-                ? loginFormik.errors.PhoneNumber
-                : null
-            }
-          />
-          {formState ? (
-            <Alert sx={alert} className="ale" severity="error">
-              <strong>Invalid Credentials or Sign Up to continue</strong>
-            </Alert>
-          ) : null}
+    <>
+      {logValue ? (
+        <div style={loginCard}>
+          <IconButton
+            sx={{ fontSize: "30px", marginBottom: "20px" }}
+            onClick={() => setLogValue(false)}
+          >
+            <CloseIcon />
+          </IconButton>
+          <div className="login-card-one">
+            <h1 style={{ fontSize: "32px", padding: "5px 0" }}>Login</h1>
+            <p style={{ fontSize: "14px", padding: "10px 0" }}>
+              or create an account{" "}
+            </p>
+          </div>
+          <form onSubmit={loginFormik.handleSubmit}>
+            <div style={{ padding: "15px 0" }}>
+              <TextField
+                onChange={loginFormik.handleChange}
+                name="PhoneNumber"
+                style={inputStyle}
+                type="number"
+                value={loginFormik.values.PhoneNumber}
+                placeholder="Phone number"
+                error={
+                  loginFormik.touched.PhoneNumber &&
+                  loginFormik.errors.PhoneNumber
+                    ? loginFormik.errors.PhoneNumber
+                    : null
+                }
+                helperText={
+                  loginFormik.touched.PhoneNumber &&
+                  loginFormik.errors.PhoneNumber
+                    ? loginFormik.errors.PhoneNumber
+                    : null
+                }
+              />
+              {formState ? (
+                <Alert
+                  sx={alert}
+                  style={{
+                    "&:hover": {
+                      border: "none !important",
+                      boxShadow: "none !important",
+                    },
+                  }}
+                  severity="error"
+                >
+                  <strong>Invalid Credentials or Sign Up to continue</strong>
+                </Alert>
+              ) : null}
+            </div>
+            <button style={loginButton} type="submit">
+              LOGIN
+            </button>
+          </form>
+          <div>
+            <p>
+              By clicking on Login, I accept the Terms & Conditions & Privacy
+              Policy
+            </p>
+          </div>
         </div>
-        <button className="but" type="submit">
-          LOGIN
-        </button>
-      </form>
-      <div className="login-card-three">
-        <p>
-          By clicking on Login, I accept the Terms & Conditions & Privacy Policy
-        </p>
-      </div>
-    </div>
+      ) : (
+        <SignUpCard inputStyle={inputStyle} />
+      )}
+    </>
   );
 }
 
-function SignUpCard({ signValue, setSignValue, setLogValue }) {
-  const style = {
-    display: signValue ? "block" : "none",
-  };
-
+function SignUpCard({ signValue, setSignValue, setLogValue, inputStyle }) {
   const signValidation = yup.object({
     name: yup.string().required("Enter Your Name"),
     phoneNumber: yup
@@ -259,122 +302,140 @@ function SignUpCard({ signValue, setSignValue, setLogValue }) {
   });
 
   return (
-    <div style={style} className="sign-card">
-      <IconButton onClick={() => setSignValue(false)}>
-        <CloseIcon />
-      </IconButton>
-      <div className="sign-card-one">
-        <h1>Sign Up</h1>
-        <p>or log into your account </p>
-      </div>
-      <form onSubmit={signUpFormik.handleSubmit}>
-        <div className="sign-card-two">
-          <TextField
-            onChange={signUpFormik.handleChange}
-            onBlur={signUpFormik.handleBlur}
-            name="phoneNumber"
-            className="input"
-            type="number"
-            placeholder="Phone number"
-            error={
-              signUpFormik.touched.phoneNumber &&
-              signUpFormik.errors.phoneNumber
-                ? signUpFormik.errors.phoneNumber
-                : null
-            }
-            helperText={
-              signUpFormik.touched.phoneNumber &&
-              signUpFormik.errors.phoneNumber
-                ? signUpFormik.errors.phoneNumber
-                : null
-            }
-          />
-          <TextField
-            onChange={signUpFormik.handleChange}
-            onBlur={signUpFormik.handleBlur}
-            name="name"
-            className="input"
-            type="text"
-            placeholder="Name"
-            error={
-              signUpFormik.touched.name && signUpFormik.errors.name
-                ? signUpFormik.errors.name
-                : null
-            }
-            helperText={
-              signUpFormik.touched.name && signUpFormik.errors.name
-                ? signUpFormik.errors.name
-                : null
-            }
-          />
-          <TextField
-            onChange={signUpFormik.handleChange}
-            onBlur={signUpFormik.handleBlur}
-            name="email"
-            className="input"
-            type="email"
-            placeholder="Email"
-            error={
-              signUpFormik.touched.email && signUpFormik.errors.email
-                ? signUpFormik.errors.email
-                : null
-            }
-            helperText={
-              signUpFormik.touched.email && signUpFormik.errors.email
-                ? signUpFormik.errors.email
-                : null
-            }
-          />
+    <>
+      {signValue ? (
+        <div style={signCard}>
+          <IconButton
+            sx={{ fontSize: "30px", marginBottom: "20px" }}
+            onClick={() => setSignValue(false)}
+          >
+            <CloseIcon />
+          </IconButton>
+          <div>
+            <h1 style={{ fontSize: "32px", padding: "5px 0" }}>Sign Up</h1>
+            <p style={{ fontSize: "14px", padding: "10px 0" }}>
+              or log into your account{" "}
+            </p>
+          </div>
+          <form onSubmit={signUpFormik.handleSubmit}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "5px",
+                padding: "15px 0",
+              }}
+            >
+              <TextField
+                onChange={signUpFormik.handleChange}
+                onBlur={signUpFormik.handleBlur}
+                name="phoneNumber"
+                sx={inputStyle}
+                type="number"
+                placeholder="Phone number"
+                error={
+                  signUpFormik.touched.phoneNumber &&
+                  signUpFormik.errors.phoneNumber
+                    ? signUpFormik.errors.phoneNumber
+                    : null
+                }
+                helperText={
+                  signUpFormik.touched.phoneNumber &&
+                  signUpFormik.errors.phoneNumber
+                    ? signUpFormik.errors.phoneNumber
+                    : null
+                }
+              />
+              <TextField
+                onChange={signUpFormik.handleChange}
+                onBlur={signUpFormik.handleBlur}
+                name="name"
+                sx={inputStyle}
+                type="text"
+                placeholder="Name"
+                error={
+                  signUpFormik.touched.name && signUpFormik.errors.name
+                    ? signUpFormik.errors.name
+                    : null
+                }
+                helperText={
+                  signUpFormik.touched.name && signUpFormik.errors.name
+                    ? signUpFormik.errors.name
+                    : null
+                }
+              />
+              <TextField
+                onChange={signUpFormik.handleChange}
+                onBlur={signUpFormik.handleBlur}
+                name="email"
+                sx={inputStyle}
+                type="email"
+                placeholder="Email"
+                error={
+                  signUpFormik.touched.email && signUpFormik.errors.email
+                    ? signUpFormik.errors.email
+                    : null
+                }
+                helperText={
+                  signUpFormik.touched.email && signUpFormik.errors.email
+                    ? signUpFormik.errors.email
+                    : null
+                }
+              />
+            </div>
+            <h3>Have a referral code?</h3>
+            <button style={loginButton} type="submit">
+              CONTINUE
+            </button>
+            <div className="sign-card-three">
+              <p>
+                By creating on account, I accept the Terms & Conditions &
+                Privacy Policy
+              </p>
+            </div>
+          </form>
         </div>
-        <h3>Have a referral code?</h3>
-        <button className="but" type="submit">
-          CONTINUE
-        </button>
-        <div className="sign-card-three">
-          <p>
-            By creating on account, I accept the Terms & Conditions & Privacy
-            Policy
-          </p>
-        </div>
-      </form>
-    </div>
+      ) : (
+        <loginCard />
+      )}
+    </>
   );
 }
 
 function Feature() {
   return (
-    <div className="feature">
-      <div className="feature-one">
+    <div style={feature}>
+      <div style={featureOne}>
         <img
           src="images\4x_-_No_min_order_x0bxuf.webp"
           alt="no-min-order.png"
           width="120px"
         />
-        <h2>No Minimum Order</h2>
+        <h2 style={{ marginTop: "10px" }}>No Minimum Order</h2>
         <p>
           Order in for yourself or for the group, with no restrictions on order
           value
         </p>
       </div>
-      <div className="feature-two">
+      <div style={featureOne}>
         <img
           src="images\4x_Live_order_zzotwy.webp"
           alt="live-order.png"
           width="120px"
         />
-        <h2>Live Order Tracking</h2>
+        <h2 style={{ marginTop: "10px" }}>Live Order Tracking</h2>
         <p>
           Know where your order is at all times, from the restaurant to your
           doorstep
         </p>
       </div>
-      <div className="feature-three">
+      <div style={featureOne}>
         <img
           src="images\4x_-_Super_fast_delivery_awv7sn.webp"
           alt="super-fast-delivery.png"
           width="120px"
         />
-        <h2>Lightning-Fast Delivery</h2>
+        <h2 style={{ marginTop: "10px" }}>Lightning-Fast Delivery</h2>
         <p>
           Experience Swiggy's superfast delivery for food delivered fresh & on
           time
