@@ -1,23 +1,28 @@
-import { useState } from "react";
-import Alert from "@mui/material/Alert";
 import CloseIcon from "@mui/icons-material/Close";
 import { IconButton } from "@mui/material";
-import { AppStore } from "./AppStore";
+import Alert from "@mui/material/Alert";
+import TextField from "@mui/material/TextField";
 import { useFormik } from "formik";
-import { API } from "./API";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import TextField from '@mui/material/TextField';
-import * as yup from 'yup';
+import * as yup from "yup";
+import { API } from "./API";
+import { AppStore } from "./AppStore";
+import {
+  content,
+  logo,
+  logSignButton,
+  marketHead,
+  pincode,
+  pincodeButton,
+  welcomePage
+} from "./styles/loginStyles";
 
 export function Login() {
   const [value, setValue] = useState("");
   const [state, setState] = useState(false);
   const [logValue, setLogValue] = useState(false);
   const [signValue, setSignValue] = useState(false);
-
-  const style = {
-    fontSize: "14px",
-  };
 
   const setLog = () => {
     setLogValue(true);
@@ -30,53 +35,81 @@ export function Login() {
   };
 
   return (
-    <div className="log-in-page">
+    <div>
       <LogInCard logValue={logValue} setLogValue={setLogValue} />
-      <SignUpCard signValue={signValue} setSignValue={setSignValue} setLogValue={setLogValue}/>
-      <div className="welcome-page">
-        <div className="content">
-          <div className="logo">
+      <SignUpCard
+        signValue={signValue}
+        setSignValue={setSignValue}
+        setLogValue={setLogValue}
+      />
+      <div style={welcomePage}>
+        <div style={content}>
+          <div style={logo}>
             <img
               src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/2560px-Swiggy_logo.svg.png"
               alt="Swiggy-logo.png"
               width="200px"
             />
-            <div className="log-sign">
-              <button onClick={() => setLog()} className="log">
+            <div>
+              <button
+                style={logSignButton}
+                onClick={() => setLog()}
+                className="log"
+              >
                 Login
               </button>
-              <button onClick={() => setSign()}>Sign up</button>
+              <button style={logSignButton} onClick={() => setSign()}>
+                Sign up
+              </button>
             </div>
           </div>
 
-          <div className="quote">
-            <h1>Late night at office ?</h1>
-            <p>Order food from favourite restaurants near you.</p>
+          <div style={marketHead}>
+            <h1 style={{ marginBottom: "15px" }}>Late night at office ?</h1>
+            <p style={{ fontSize: "22px" }}>
+              Order food from favourite restaurants near you.
+            </p>
           </div>
 
-          <div className="pincode">
-            <div className="one">
+          <div style={pincode}>
+            <div>
               <input
+                style={{
+                  maxWidth: "400px",
+                  padding: "10px",
+                  border: "none",
+                  fontSize: "16px",
+                  marginLeft: "10px",
+                }}
                 onChange={(ev) => setValue(ev.target.value)}
                 type="number"
                 placeholder="Enter your delivery location"
               />
             </div>
-            <div className="two">
-              <button onClick={() => setState(value == "")}>FIND FOOD</button>
+            <div style={{ backgroundColor: "#fc8019", cursor: "pointer" }}>
+              <button
+                style={pincodeButton}
+                onClick={() => setState(value == "")}
+              >
+                FIND FOOD
+              </button>
             </div>
           </div>
           {state ? (
-            <Alert sx={style} severity="error">
+            <Alert sx={{ fontSize: "14px" }} severity="error">
               <strong>Enter your delivery location</strong>
             </Alert>
-          ) : <Alert sx={style} severity="success">
-          <strong>Log In to continue</strong>
-            </Alert>}
+          ) : (
+            <Alert sx={{ fontSize: "14px" }} severity="success">
+              <strong>Log In to continue</strong>
+            </Alert>
+          )}
 
-          <div className="city">
-            <p>POPULAR CITIES IN INDIA</p>
-            <p>
+          <div style={{ color: "grey", marginTop: "40px", fontSize: "16px" }}>
+            <p style={{marginTop: '10px'}}>POPULAR CITIES IN INDIA</p>
+            <p style={{marginTop: '15px',
+  maxWidth: '600px',
+  wordSpacing: '10px',}}>
               <strong>
                 Ahmedabad Bangalore Chennai Delhi,Gurgaon Hyderabad Kolkata
                 Mumbai Pune& more.
@@ -106,12 +139,13 @@ export function LogInCard({ logValue, setLogValue }) {
   };
 
   const logValidation = yup.object({
-    PhoneNumber : yup.string()
-    .required("Enter the phone number")
-    .matches(/^[0-9]+$/, "Must be only digits")
-    .min(10, 'Enter the valid number')
-    .max(10, 'Enter the valid number'),
-  })
+    PhoneNumber: yup
+      .string()
+      .required("Enter the phone number")
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(10, "Enter the valid number")
+      .max(10, "Enter the valid number"),
+  });
 
   const [state, setState] = useState(false);
   const [formState, setFormState] = useState(false);
@@ -124,7 +158,7 @@ export function LogInCard({ logValue, setLogValue }) {
 
   const loginFormik = useFormik({
     initialValues: { PhoneNumber: "" },
-    validationSchema : logValidation,
+    validationSchema: logValidation,
     onSubmit: async (values) => {
       const data = await fetch(`${API}/LogIn`, {
         method: "POST",
@@ -133,7 +167,7 @@ export function LogInCard({ logValue, setLogValue }) {
       });
 
       const result = await data.json();
-      if (data.status == 400){
+      if (data.status == 400) {
         setFormState(true);
       } else {
         localStorage.setItem("token", result.Token);
@@ -160,14 +194,20 @@ export function LogInCard({ logValue, setLogValue }) {
             type="number"
             value={loginFormik.values.PhoneNumber}
             placeholder="Phone number"
-            error={loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber ? loginFormik.errors.PhoneNumber : null}
-            helperText={loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber ? loginFormik.errors.PhoneNumber : null}
+            error={
+              loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber
+                ? loginFormik.errors.PhoneNumber
+                : null
+            }
+            helperText={
+              loginFormik.touched.PhoneNumber && loginFormik.errors.PhoneNumber
+                ? loginFormik.errors.PhoneNumber
+                : null
+            }
           />
           {formState ? (
             <Alert sx={alert} className="ale" severity="error">
-              <strong>
-                Invalid Credentials or Sign Up to continue
-              </strong>
+              <strong>Invalid Credentials or Sign Up to continue</strong>
             </Alert>
           ) : null}
         </div>
@@ -184,36 +224,37 @@ export function LogInCard({ logValue, setLogValue }) {
   );
 }
 
-function SignUpCard({ signValue, setSignValue ,setLogValue}) {
+function SignUpCard({ signValue, setSignValue, setLogValue }) {
   const style = {
     display: signValue ? "block" : "none",
   };
 
   const signValidation = yup.object({
-    name : yup.string().required("Enter Your Name"),
-    phoneNumber : yup.string()
-    .required("Required Field")
-    .matches(/^[0-9]+$/, "Must be only digits")
-    .min(10, 'Enter the valid number')
-    .max(10, 'Enter the valid number'),
-    email : yup.string().email().required("Enter Your Email"),
-  })
+    name: yup.string().required("Enter Your Name"),
+    phoneNumber: yup
+      .string()
+      .required("Required Field")
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(10, "Enter the valid number")
+      .max(10, "Enter the valid number"),
+    email: yup.string().email().required("Enter Your Email"),
+  });
 
   const signUpFormik = useFormik({
     initialValues: {
-      name : "",
+      name: "",
       phoneNumber: "",
-      email : ""
+      email: "",
     },
-    validationSchema : signValidation,
+    validationSchema: signValidation,
     onSubmit: async (values) => {
       const data = await fetch(`${API}/signUp`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(values),
       });
-      setSignValue(false)
-      setLogValue(true)
+      setSignValue(false);
+      setLogValue(true);
     },
   });
 
@@ -235,8 +276,18 @@ function SignUpCard({ signValue, setSignValue ,setLogValue}) {
             className="input"
             type="number"
             placeholder="Phone number"
-            error={signUpFormik.touched.phoneNumber && signUpFormik.errors.phoneNumber ? signUpFormik.errors.phoneNumber : null}
-            helperText={signUpFormik.touched.phoneNumber && signUpFormik.errors.phoneNumber ? signUpFormik.errors.phoneNumber : null}
+            error={
+              signUpFormik.touched.phoneNumber &&
+              signUpFormik.errors.phoneNumber
+                ? signUpFormik.errors.phoneNumber
+                : null
+            }
+            helperText={
+              signUpFormik.touched.phoneNumber &&
+              signUpFormik.errors.phoneNumber
+                ? signUpFormik.errors.phoneNumber
+                : null
+            }
           />
           <TextField
             onChange={signUpFormik.handleChange}
@@ -245,8 +296,16 @@ function SignUpCard({ signValue, setSignValue ,setLogValue}) {
             className="input"
             type="text"
             placeholder="Name"
-            error={signUpFormik.touched.name && signUpFormik.errors.name ? signUpFormik.errors.name : null}
-            helperText={signUpFormik.touched.name && signUpFormik.errors.name ? signUpFormik.errors.name : null}
+            error={
+              signUpFormik.touched.name && signUpFormik.errors.name
+                ? signUpFormik.errors.name
+                : null
+            }
+            helperText={
+              signUpFormik.touched.name && signUpFormik.errors.name
+                ? signUpFormik.errors.name
+                : null
+            }
           />
           <TextField
             onChange={signUpFormik.handleChange}
@@ -255,8 +314,16 @@ function SignUpCard({ signValue, setSignValue ,setLogValue}) {
             className="input"
             type="email"
             placeholder="Email"
-            error={signUpFormik.touched.email && signUpFormik.errors.email ? signUpFormik.errors.email : null}
-            helperText={signUpFormik.touched.email && signUpFormik.errors.email ? signUpFormik.errors.email : null}
+            error={
+              signUpFormik.touched.email && signUpFormik.errors.email
+                ? signUpFormik.errors.email
+                : null
+            }
+            helperText={
+              signUpFormik.touched.email && signUpFormik.errors.email
+                ? signUpFormik.errors.email
+                : null
+            }
           />
         </div>
         <h3>Have a referral code?</h3>
