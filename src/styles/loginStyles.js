@@ -122,3 +122,16 @@ export const featureOne = {
   marginBottom: '40px',
   margin: '15px'
 }
+
+export const appStore  = {
+  display: 'flex',
+  height: '400px',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+}
+
+export const appStoreOne = {
+  padding: '50px',
+  width: '50%',
+  textAlign: 'left',
+}
