@@ -135,3 +135,12 @@ export const appStoreOne = {
   width: '50%',
   textAlign: 'left',
 }
+
+export const cityLinkAnchor = {
+  textDecoration: 'none',
+  listStyleType: 'none',
+  textTransform: 'capitalize',
+  fontSize: '16px',
+  color:' aliceblue',
+  transition: '.2s',
+}

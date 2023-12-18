@@ -20,55 +20,8 @@ body{
 }
 
 /* --------------------------App store ------------------------- */
- 
-.AppStore{
-  display: flex;
-  height: 400px;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.AppStore-two{
-  display: flex;
-}
-
-.AppStore-one{
-  padding: 50px;
-  width: 50%;
-  text-align: left;
-}
-
-.AppStore-one h1{
-  font-size: 34px;
-}
-
-.AppStore-one p{
-  font-size: 18px;
-  margin-left: 0%;
-}
-
-.AppStore-one img{
-  margin-top: 40px;
-  cursor: pointer;
-}
-
 
 /* --------------------------city links ------------------------------------- */
-
-
-.divv a{
-  text-decoration: none;
-  list-style-type: none;
-  text-transform: capitalize;
-  font-size: 16px;
-  color: aliceblue;
-  transition: .2s;
-}
-
-.City-links li:hover{
-  transform: scale(1.03);
-}
-
 hr{
   margin: 10px 0;
 }

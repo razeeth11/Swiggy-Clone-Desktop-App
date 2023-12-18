@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { API } from "./API";
+import { cityLinkAnchor } from "./styles/loginStyles";
 
 
 export function CityData() {
@@ -70,7 +71,7 @@ function CityLinks({ cityName }) {
 
   return (
     <div className="City-links">
-      <a href={dt}>
+      <a style={cityLinkAnchor} href={dt}>
         <li>{cityName}</li>
       </a>
     </div>
