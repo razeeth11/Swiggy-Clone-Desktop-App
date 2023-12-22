@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { API } from "./API";
-import { cityLinkAnchor } from "./styles/loginStyles";
 
 
 export function CityData() {
@@ -71,7 +70,7 @@ function CityLinks({ cityName }) {
 
   return (
     <div className="City-links">
-      <a style={cityLinkAnchor} href={dt}>
+      <a style={} href={dt}>
         <li>{cityName}</li>
       </a>
     </div>
